@@ -50,8 +50,8 @@ img{
   width:250px;
 }
 .contents{
+  text-align: center; 
   padding-top:10px;
-  background-color: white;
   border:solid black; 
 }
 

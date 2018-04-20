@@ -3,19 +3,20 @@
   	<div class="title">
   		<h1>抽牌機！</h1>
   	</div>
+    <transition name="v2">
     <div class="result" v-if="draw">
         <div v-for="c in each" class="card">
             <divider>Tarot</divider>
             <h3 class="card-name">{{c.card}}</h3>
             <img class="card-img" :src="c.path" :style="c.style">
         </div>
-
     </div>
+    </transition>
     <div class="choose">
       <div  id="enter" v-if="!draw">
         <h2>您想要抽 {{ number }} 張牌...</h2>
-        <p>請冥想並按住按鈕...</p>
-        <x-icon @mousedown="tStart" @mouseup="tEnd" @touchstart="tStart" @touchend="tEnd" type="ios-circle-filled" size="150"></x-icon>
+        <p>請冥想並按下按鈕...</p>
+        <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
       </div>
       <divider>{{msg}}</divider>
       <div id="leave" @click="leaveHandler">
@@ -82,7 +83,7 @@ export default {
       for(let i=0;i<this.number;i++){
         this.each[i] = {};
         if(d[i].reversed) this.each[i].style='transform: scaleY(-1);'
-        this.each[i].path = "/static/tarot/"+d[i].fileName;
+        this.each[i].path = d[i].path;
         this.each[i].card = d[i].card;
       }
       this.draw=true

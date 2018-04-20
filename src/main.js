@@ -13,6 +13,8 @@ import Disclaimer from '@/components/stage1/disclaimer'
 import Spread from '@/components/stage1/spread'
 import SpreadResult from '@/components/stage1/spreadresult'
 
+import Storage from 'vue-ls'
+
 import { XButton,Divider,Flexbox,FlexboxItem } from 'vux'
 
 
@@ -21,7 +23,7 @@ Vue.component('divider', Divider)
 Vue.component('flexbox', Flexbox)
 Vue.component('flexbox-item', FlexboxItem)
 
-
+Vue.use(Storage)
 Vue.use(VueRouter)
 
 const routes = [{
