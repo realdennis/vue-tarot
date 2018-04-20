@@ -6,7 +6,7 @@
         <h1> 塔羅機器人 </h1>
       </transition>
     </div>
-    <divider>start from here</divider>
+    <divider>Let's Start From Here</divider>
     <div class="start">
       <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">開始使用</x-button>
     </div>

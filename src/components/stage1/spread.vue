@@ -12,7 +12,7 @@
         <x-button plain type="default" class="button" :link="{name:'result',params:{num:5}}">5</x-button>  
       </div>
 
-      <divider>Choose one</divider>
+      <divider>{{msg}}</divider>
       <div id="leave" @click="leaveHandler">
         <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
       </div>
@@ -22,14 +22,14 @@
 </template>
 
 <script>
-import { Divider, XButton,Flexbox, FlexboxItem } from 'vux'
+import { } from 'vux'
 
 export default {
   components: {
-    Divider,XButton,Flexbox, FlexboxItem
   },
   data () {
     return {
+      msg:"others"
     }
   },
   methods:{

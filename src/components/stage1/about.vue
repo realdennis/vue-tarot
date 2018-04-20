@@ -2,6 +2,18 @@
   <div>
     <div class="title">
       <h1>關於我們</h1>
+
+      <div class="contents">
+        <img src="/static/JOJO2.png">
+        <br>
+        <i>「無馱無馱無馱無馱無馱無馱無馱無馱無馱無馱」 - 迪奧·布蘭度</i>
+        <br>
+        <h3>這個開發者很懶...<br>不打算自我介紹...</h3>
+      </div>
+    </div>
+    <divider>Back</divider>
+    <div id="leave" @click="leaveHandler">
+      <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
     </div>
   </div>
 </template>
@@ -16,6 +28,11 @@ export default {
     return {
       msg: 'Hello World!'
     }
+  },
+  methods:{
+    leaveHandler(){
+      history.back();
+    }
   }
 }
 </script>
@@ -28,6 +45,14 @@ export default {
 }
 .choose{
 	margin:20px;
+}
+img{
+  width:250px;
+}
+.contents{
+  padding-top:10px;
+  background-color: white;
+  border:solid black; 
 }
 
 </style>

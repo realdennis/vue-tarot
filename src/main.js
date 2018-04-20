@@ -13,6 +13,14 @@ import Disclaimer from '@/components/stage1/disclaimer'
 import Spread from '@/components/stage1/spread'
 import SpreadResult from '@/components/stage1/spreadresult'
 
+import { XButton,Divider,Flexbox,FlexboxItem } from 'vux'
+
+
+Vue.component('XButton', XButton)
+Vue.component('divider', Divider)
+Vue.component('flexbox', Flexbox)
+Vue.component('flexbox-item', FlexboxItem)
+
 
 Vue.use(VueRouter)
 
@@ -40,10 +48,10 @@ const routes = [{
 	component:SpreadResult
 }
 ]
-
 const router = new VueRouter({
   routes
 })
+
 
 FastClick.attach(document.body)
 

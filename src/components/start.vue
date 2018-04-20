@@ -10,19 +10,27 @@
 					<x-button link="about" class="button" :gradients="['#1D62F0', '#19D5FD']">關於我們</x-button>
 					<x-button link="disclaimer" class="button" :gradients="['#1D62F0', '#19D5FD']">免責聲明</x-button>
   	</div>
+    <divider>Go Back</divider>
+    <div id="leave" @click="leaveHandler">
+      <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
+    </div>
   </div>
 </template>
 
 <script>
-import { XButton,Flexbox,FlexboxItem } from 'vux'
+import {} from 'vux'
 
 export default {
   components: {
-    XButton,
   },
   data () {
     return {
       msg: 'Hello World!'
+    }
+  },
+  methods:{
+    leaveHandler(){
+      history.back();
     }
   }
 }

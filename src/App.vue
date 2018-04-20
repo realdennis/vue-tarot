@@ -1,6 +1,6 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-  	<transition name="fade">
+  	<transition name="v">
 			<router-view></router-view>
 		</transition>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
 }
 </script>
 
@@ -16,28 +16,22 @@ export default {
 #app{
 	text-align: center
 }
-.fade-enter-active, .fade-leave-active {
-  transition-property: opacity;
-  transition-duration: .25s;
-}
 
-.fade-enter-active {
-  transition-delay: .25s;
-}
-
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
+.v-leave { opacity: 1; }
+.v-leave-active { transition: opacity .3s ;height:100vh;}
+.v-leave-to { opacity: 0; }
+.v-enter { opacity: 0; }
+.v-enter-active  { transition: opacity .3s }
+.v-enter-to { opacity: 1; }
 
 .button {
-  font-size: 25px !important;
+  font-size: 20px !important;
   border-radius: 150px !important;
-  height:70px;
+  height:50px;
 }
 
 .title {
 	text-align: center;
-  margin-top:10vh;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -47,4 +41,7 @@ body{
 	background: rgba(233, 240, 255,0.9);	
 }
 
+img{
+  width:150px;
+}
 </style>

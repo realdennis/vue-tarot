@@ -5,7 +5,6 @@
     </div>
     <div class="result" v-if="draw">
       <flexbox>
-
         <img :src="path" :style="style">
         <flexbox-item>
           <div class="profile"></div>
@@ -23,7 +22,7 @@
         <p>請冥想並按住按鈕...</p>
         <x-icon @mousedown="tStart" @mouseup="tEnd" @touchstart="tStart" @touchend="tEnd" type="ios-circle-filled" size="150"></x-icon>
       </div>
-      <divider>Choose one</divider>
+      <divider>{{msg}}</divider>
       <div id="leave" @click="leaveHandler">
         <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
       </div>
@@ -33,16 +32,17 @@
 </template>
 
 <script>
-import { Divider, Flexbox, FlexboxItem } from 'vux'
+import {  } from 'vux'
 //import  {}  from './draw'
-let draw = require('./draw.js')
+let daily = require('./draw.js').daily
 
 export default {
   components: {
-    Divider, Flexbox, FlexboxItem
+    
   },
   data () {
     return {
+      msg:"Choose one",
       time:0,
       draw:false,
       path:'/static/tarot/',
@@ -62,11 +62,13 @@ export default {
     },
     tEnd(e){
       let touchTime = (e.timeStamp-this.time)/1000;
+      if(touchTime<1.5) return
+      this.msg="Go Back"
       console.log(touchTime);
       //if(touchTime<1) return;
       //這邊抽牌！
 
-      let d = draw();
+      let d = daily();
       console.log(d)
       if(d.reversed) this.style=' transform: scaleY(-1);'
       this.path += d.fileName;
@@ -90,7 +92,5 @@ export default {
 .choose{
   padding:30px;
 }
-img{
-  width:150px;
-}
+
 </style>
