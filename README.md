@@ -1,6 +1,14 @@
-# tarot-app
+# Vue Tarot
 
-> A Vue.js project
+> 基於Vue.js實作的塔羅牌App，移植自己在Line上的塔羅機器人。 
+
+## 介紹
+- 透過Localstorage實作抽牌時間計算
+- 採用Vux UI 
+- 手機、豎屏 用戶優先
+
+## Screenshot
+> ![](https://raw.githubusercontent.com/realdennis/vue-tarot/master/static/screenshot.jpg)
 
 ## Build Setup
 
@@ -17,5 +25,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

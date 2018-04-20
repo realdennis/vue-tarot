@@ -12,7 +12,7 @@ export default {
   mounted(){
     if(innerWidth>innerHeight){
       console.log('computer')
-      document.getElementById('app').style.width="40vh";
+      document.getElementById('app').style.width="50vh";
     }
   }
 }

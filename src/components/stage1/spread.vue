@@ -1,7 +1,7 @@
 <template>
   <div class="spread">
   	<div class="title">
-  		<h1>抽牌機！</h1>
+  		<h1>抽牌機</h1>
   	</div>
 
     <div class="choose">

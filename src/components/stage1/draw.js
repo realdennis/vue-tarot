@@ -29,7 +29,7 @@ function cardinfo(index){
 	return {
 		reversed:dual,
 		card:text,
-		path:'/static/tarot/'+tarotName,
+		path:'./static/tarot/'+tarotName,
 		mean:mean[randomChoice]
 	}
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="result">
   	<div class="title">
-  		<h1>抽牌機！</h1>
+  		<h1>抽牌機</h1>
   	</div>
     <transition name="v2">
     <div class="result" v-if="draw">
