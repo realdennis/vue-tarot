@@ -1,14 +1,24 @@
 # Vue Tarot
 
-> 基於Vue.js實作的塔羅牌App，移植自己在Line上的塔羅機器人。 
+線上版的塔羅牌App，提供“每日運勢”、“無牌陣抽牌”。
+
+### 每日運勢
+每日運勢是24小時內，只能抽一次，會給予相對應的運勢結果。
+
+### 抽牌機(無牌陣)
+抽牌機可依照使用者選擇1、3、5張，自由抽取，但是無牌陣，
+方便給在外沒有帶牌卻想占卜的人。
+
+> 基於Vue.js實作的塔羅牌App，移植自己在Line上的塔羅機器人。
+
+## Demo
+> ![](https://raw.githubusercontent.com/realdennis/vue-tarot/master/demo.gif)
 
 ## 介紹
 - 透過Localstorage實作抽牌時間計算
 - 採用Vux UI 
 - 手機、豎屏 用戶優先
 
-## Screenshot
-> ![](https://raw.githubusercontent.com/realdennis/vue-tarot/master/static/screenshot.jpg)
 
 ## Build Setup
 

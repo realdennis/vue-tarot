@@ -4,19 +4,12 @@
       <h1>免責聲明</h1>
     </div>
     <div class="cotents">
-      <div>
-      <strong>塔羅機器人</strong> 所有圖文均來自國內外所提供的公開引用資源，所有圖文版權均歸原作者及其網站所有。
+      <strong>塔羅機器人</strong>
+      <p>所有圖文均來自國內外所提供的公開引用資源，所有圖文版權均歸原作者及其網站所有。</p>
+      <p>若原作者對本站的作品版權的歸屬存有異議，請馬上告知。</p>
+
       <br>
-      若原作者對本站的作品版權的歸屬存有異議，請馬上告知。
-      </div>
-      <br>
-      <i>
-      其占卜內容僅供參考，本站不承擔任何後續的責任。
-      </i>
-    </div>
-    <divider>Go Back</divider>
-    <div id="leave" @click="leaveHandler">
-      <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
+      <i>其占卜內容僅供參考，本站不承擔任何後續的責任。</i>
     </div>
   </div>
 </template>

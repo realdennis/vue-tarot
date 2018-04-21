@@ -1,5 +1,7 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
+    <x-icon @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:1px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100"></x-icon>
+
   	<transition name="v">
 			<router-view></router-view>
 		</transition>
@@ -14,6 +16,13 @@ export default {
       console.log('computer')
       document.getElementById('app').style.width="50vh";
     }
+
+  },
+  methods:{
+    goBack(){
+      if(this.$route.path==='/') return;
+      history.go(-1);
+    }
   }
 }
 </script>
@@ -22,7 +31,6 @@ export default {
 #app{
 	text-align: center;
   margin:0px auto;
-
 }
 
 .v-leave { opacity: 1; }
@@ -42,19 +50,29 @@ export default {
 .v2-enter-to { opacity: 1; }
 
 .button {
-  font-size: 20px !important;
   border-radius: 150px !important;
-  height:50px;
+  margin:1em 0;
+}
+
+.choose-button{
+  margin-top:20vh;
 }
 
 .title {
 	text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
 body{
-	user-select : none;
+	-webkit-user-select:none ;
+  -moz-user-select: none ;
+  -ms-user-select: none ;
+  -o-user-select: none ;
+  user-select: none ;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 	background: rgba(233, 240, 255,0.9);	
 }
 

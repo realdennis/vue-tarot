@@ -16,7 +16,7 @@ import SpreadResult from '@/components/stage1/spreadresult'
 import Storage from 'vue-ls'
 
 import { XButton,Divider,Flexbox,FlexboxItem } from 'vux'
-
+require('vue2-animate/dist/vue2-animate.min.css')
 
 Vue.component('XButton', XButton)
 Vue.component('divider', Divider)

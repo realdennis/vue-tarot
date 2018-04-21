@@ -12,10 +12,7 @@
         <x-button plain type="default" class="button" :link="{name:'result',params:{num:5}}">5</x-button>  
       </div>
 
-      <divider>{{msg}}</divider>
-      <div id="leave" @click="leaveHandler">
-        <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
-      </div>
+
     </div> 
 
   </div>

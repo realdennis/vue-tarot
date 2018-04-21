@@ -4,35 +4,35 @@
       <h1>每日運勢</h1>
     </div>
 
-    <transition name="v2">
-    <div v-if="draw">
-      <div class="result">
-        <flexbox>
-          <img :src="path" :style="style">
-          <flexbox-item>
-            <div class="profile"></div>
-            <div class="text">
-              <i class="card-mean"> {{ mean }}</i>
-              <h5 class="card-name">{{ card }}</h5>
-            </div>
-          </flexbox-item>
-        </flexbox>
+    <transition name="zoom">
+      <div v-if="draw" style="animation-duration: 2s">
+        <div class="result">
+          <flexbox>
+            <img class="result-img" :src="path" :style="style">
+            <flexbox-item>
+              <div class="profile"></div>
+              <div class="text">
+                <i class="card-mean"> {{ mean }}</i>
+                <h5 class="card-name">{{ card }}</h5>
+              </div>
+            </flexbox-item>
+          </flexbox>
+        </div>
+        <div class="draw-time">
+          <i>上次抽牌於{{time.month}}月{{time.date}}號 {{time.hours}}點</i>
+          <br>
+          <br>
+          <i>於{{restHour}}小時後重置</i>
+        </div>
       </div>
-      <i class="draw-time">上次抽牌於{{time.month}}月{{time.date}}號 {{time.hours}}點...</i>
-    </div>
-
     </transition>
 
 
-    <div class="choose">
-      <div  id="enter" v-if="!draw">
-        <p>請冥想並按下按鈕...</p>
-        <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
-      </div>
-      <divider>{{msg}}</divider>
-      <div id="leave" @click="leaveHandler">
-        <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
-      </div>
+    <div class="choose-button">
+        <div  id="enter" v-if="!draw" >
+          <p>請冥想並按下按鈕...</p>
+          <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
+        </div>
     </div> 
 
   </div>
@@ -54,6 +54,7 @@ export default {
         date:Number,
         hours:Number,
       },
+      restHour:24-(new Date).getHours(),
       msg:"Choose one",
       startTouchTime:0,
       draw:false,
@@ -68,8 +69,7 @@ export default {
     if(rc=='nothing') return;
     console.log(rc)
     this.render(rc);
-  }
-  ,
+  },
   methods:{
     leaveHandler(){
       history.back();
@@ -98,7 +98,8 @@ export default {
             'date':now.getDate(),
             'hours':now.getHours()
       };
-//      console.log(d)
+      this.restHour = (24 - now.getHours())
+      console.log(this.restHour)
       this.render(d);
       this.$ls.set(
         'daily',{
@@ -107,7 +108,7 @@ export default {
           'path':d.path,
           'reversed':d.reversed,
           'mean':d.mean
-        },24*60*60*1000);//a day expire
+        },(this.restHour)*60*60*1000);//a day expire
     }
   }
 }
@@ -120,6 +121,11 @@ export default {
   color:black;
   border:solid black;
   border-width:2px;
+  margin-bottom:50px;
+}
+
+.result-img{
+  padding:1em 0;
 }
 
 .draw-time{

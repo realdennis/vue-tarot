@@ -2,21 +2,18 @@
   <div>
     <div class="title">
       <h1>關於我們</h1>
-
+    </div>
+    
       <div class="contents">
         <img class="JOJO2" :src="path">
         <br>
-        <i>「無馱無馱無馱無馱無馱無馱無馱無馱無馱無馱」 - 迪奧·布蘭度</i>
-        <br>
         <h3>This is an Open Source Project</h3>
         <a href='https://github.com/realdennis/vue-tarot'>
-                <img class="github" :src="gPath" alt=""><br>Github</a>  
+                <img class="github" :src="gPath" alt="Github">
+                <br>
+                Github
+        </a>  
       </div>
-    </div>
-    <divider>Back</divider>
-    <div id="leave" @click="leaveHandler">
-      <x-icon type="ios-arrow-thin-left" size="150"></x-icon>
-    </div>
   </div>
 </template>
 
@@ -51,7 +48,7 @@ export default {
 	margin:20px;
 }
 .JOJO2{
-  width:250px;
+  width:200px;
 }
 .github{
   width:40px;
@@ -59,7 +56,7 @@ export default {
 .contents{
   background-color: white;
   text-align: center; 
-  padding-top:10px;
+  padding:10px;
   border:solid black; 
 }
 

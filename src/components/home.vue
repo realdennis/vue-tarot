@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      msg: 'Hello World!'
+      msg: ''
     }
   }
 }
@@ -44,7 +44,9 @@ export default {
   width: 150px;
   height: 150px
 }
-
+.title{
+  padding-top:20px;
+}
 .start {
   margin:40px;
 }
