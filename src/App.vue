@@ -65,7 +65,7 @@ body{
 }
 
 img{
-  width:40vw;
+  width:10em;
 }
 
 .choose{

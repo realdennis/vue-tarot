@@ -18,7 +18,10 @@
             </flexbox-item>
           </flexbox>
         </div>
-        <div class="draw-time">
+        <div class="draw-time">  
+          <a :href="href" target="_blank" >
+            <p>查詢 {{card}} 的牌意</p> 
+          </a>
           <i>上次抽牌於{{time.month}}月{{time.date}}號 {{time.hours}}點</i>
           <br>
           <br>
@@ -66,6 +69,13 @@ export default {
       style:'',
     }
   },
+  mounted(){
+    },
+  computed:{
+    href(){
+      return 'https://www.google.com/search?q='+this.card
+    }
+  },
   created(){
     let rc = this.$ls.get('daily','nothing')
     if(rc=='nothing') return;
@@ -85,6 +95,7 @@ export default {
       this.time = d.time;
       this.msg="Go Back"
       this.draw = true;
+
     },
     tStart(e){
       this.startTouchTime = e.timeStamp;
@@ -100,8 +111,11 @@ export default {
             'date':now.getDate(),
             'hours':now.getHours()
       };
-      this.restHour = (24 - now.getHours())
-      console.log(this.restHour)
+      let h = (24 - now.getHours())
+      let m = (60- now.getMinutes())
+
+      let restTime = ((h-1)*60 + m)*60 *1000; // ms
+
       this.render(d);
       this.$ls.set(
         'daily',{
@@ -110,7 +124,7 @@ export default {
           'path':d.path,
           'reversed':d.reversed,
           'mean':d.mean
-        },(this.restHour)*60*60*1000);//a day expire
+        },restTime);//a day expire
     }
   }
 }
