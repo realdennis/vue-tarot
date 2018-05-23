@@ -40,6 +40,7 @@ export default {
   border:solid gray;
 
   padding:30px;
+  margin:20px;
 }
 
 </style>

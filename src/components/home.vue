@@ -2,9 +2,7 @@
   <div>
     <div class="title">
       <img class="logo" src="../assets/tarot_logo.jpg">
-      <transition enter-active-class="animated wobble" leave-active-class="animated wobble">
-        <h1> 塔羅機器人 </h1>
-      </transition>
+      <h1> 塔羅機器人 </h1>
     </div>
     <divider>Let's Start From Here</divider>
     <div class="start">
@@ -30,22 +28,10 @@ export default {
 
 <style scoped>
 
-@import  '../node_modules/animate.css/animate.css'
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
 .logo {
   border-radius: 99px;
   width: 150px;
   height: 150px
-}
-.title{
-  padding-top:20px;
 }
 .start {
   margin:40px;

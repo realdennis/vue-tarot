@@ -39,16 +39,8 @@ export default {
 </script>
 
 <style scoped>
-.start {
-	text-align: center;
-	margin-top: 20vh;
-  margin-bottom: 10px;
-}
-.choose{
-	margin:20px;
-}
 .JOJO2{
-  width:200px;
+  width:220px;
 }
 .github{
   width:40px;
@@ -58,6 +50,7 @@ export default {
   text-align: center; 
   padding:10px;
   border:solid black; 
+  margin:10px;
 }
 
 </style>

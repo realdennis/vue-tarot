@@ -5,12 +5,10 @@
   	</div>
 
     <div class="choose">
-      <div>
-        <p>請選擇要抽幾張牌</p>
-        <x-button plain type="default" class="button" :link="{name:'result',params:{num:1}}">1</x-button>
-        <x-button plain type="default" class="button" :link="{name:'result',params:{num:3}}">3</x-button>
-        <x-button plain type="default" class="button" :link="{name:'result',params:{num:5}}">5</x-button>  
-      </div>
+      <p>請選擇要抽幾張牌</p>
+      <x-button plain type="default" class="button" :link="{name:'result',params:{num:1}}">1</x-button>
+      <x-button plain type="default" class="button" :link="{name:'result',params:{num:3}}">3</x-button>
+      <x-button plain type="default" class="button" :link="{name:'result',params:{num:5}}">5</x-button>  
 
 
     </div> 

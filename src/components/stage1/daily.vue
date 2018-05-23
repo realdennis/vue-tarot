@@ -123,11 +123,11 @@ export default {
   color:black;
   border:solid black;
   border-width:2px;
+  margin:10px;
   margin-bottom:50px;
 }
 
 .result-img{
-  padding:1em 0;
 }
 
 .draw-time{
