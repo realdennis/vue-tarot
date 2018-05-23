@@ -54,9 +54,6 @@ export default {
   margin:1em 0;
 }
 
-.choose-button{
-  margin-top:20vh;
-}
 
 .title {
 	text-align: center;

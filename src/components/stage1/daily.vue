@@ -30,6 +30,8 @@
 
     <div class="choose-button">
         <div  id="enter" v-if="!draw" >
+
+          <h3>一天僅限一次，於每晚12點重置</h3>
           <p>請冥想並按下按鈕...</p>
           <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
         </div>

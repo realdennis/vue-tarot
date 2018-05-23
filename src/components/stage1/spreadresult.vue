@@ -14,7 +14,7 @@
     </div>
 
     <div class="choose-button" id="enter" v-if="!draw" >
-      <h2>您想要抽 {{ number }} 張牌...</h2>
+      <h3>您想要抽 {{ number }} 張牌</h3>
       <p>請冥想並按下按鈕...</p>
       <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
     </div>
