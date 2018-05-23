@@ -1,10 +1,10 @@
 {
- "name": "Vue Tarot",
- "short_name": "塔羅機器人",
+ "name": "Tarobot",
+ "short_name": "Tarobot",
 
  "start_url": "../index.html",
  
- "description": "基於Vue.js的塔羅牌App",
+ "description": "Tarobot - Tarot App based on Vue.js.",
  "display": "standalone",
  "icons": [
   {

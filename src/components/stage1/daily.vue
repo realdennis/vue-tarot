@@ -13,19 +13,19 @@
               <div class="profile"></div>
               <div class="text">
                 <i class="card-mean"> {{ mean }}</i>
-                <h5 class="card-name">{{ card }}</h5>
+
+                <a :href="google+card" target="_blank" >
+                  <h5 class="card-name">{{ card }}</h5>
+                </a>
               </div>
             </flexbox-item>
           </flexbox>
         </div>
-        <div class="draw-time">  
-          <a :href="href" target="_blank" >
-            <p>查詢 {{card}} 的牌意</p> 
-          </a>
-          <i>上次抽牌於{{time.month}}月{{time.date}}號 {{time.hours}}點</i>
+        <div class="draw-time"> 
+          <p>上次抽牌於{{time.month}}月{{time.date}}號 {{time.hours}}點</p>
+          
+          <p><i>於{{restHour}}小時後重置</i></p>
           <br>
-          <br>
-          <i>於{{restHour}}小時後重置</i>
         </div>
       </div>
     </transition>
@@ -67,14 +67,12 @@ export default {
       mean:'',
       card:'',
       style:'',
+      google:'https://google.com/search?q='
     }
   },
   mounted(){
     },
   computed:{
-    href(){
-      return 'https://www.google.com/search?q='+this.card
-    }
   },
   created(){
     let rc = this.$ls.get('daily','nothing')

@@ -1,8 +1,8 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-    <x-icon @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:1px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100"></x-icon>
+    <x-icon @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:1px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
       <transition name="fade">
-			<router-view class="router"></router-view>
+			 <router-view class="router"></router-view>
       </transition>
   </div>
 </template>
@@ -46,11 +46,13 @@ body{
 
   background: rgba(233, 240, 255,0.9);
   height:100%;
+
+  font-family: Monaco,Helvetica, monospace, "Lucida Console","Comic Sans MS", sans-serif;
 }
 
 .router{
   height:100vh;
-  animation-duration:.8s;
+  animation-duration:.5s;
 }
 
 .button {
@@ -65,7 +67,7 @@ body{
 }
 
 img{
-  width:10em;
+  width:150px;
 }
 
 .choose{

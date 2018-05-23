@@ -7,7 +7,9 @@
     <div>
       <transition-group name="bounce" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s">
+            <a :href="google+c.card" target="_blank">
             <h3 class="card-name">{{c.card}}</h3>
+            </a>
             <img class="card-img" :src="c.path" :style="c.style">
         </div>
       </transition-group>
@@ -41,7 +43,8 @@ export default {
       mean:'',
       card:'',
       style:'',
-      each:{}
+      each:{},
+      google:'https://google.com/search?q='
     }
   },
   updated(){
