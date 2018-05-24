@@ -1,16 +1,16 @@
 <template>
-  <div class="result">
+  <div id="result">
   	<div class="title">
   		<h1>抽牌機</h1>
   	</div>
 
     <div>
       <transition-group name="bounce" tag="div">
-        <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s">
+        <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
+            <img class="card-img" :src="c.path" :style="c.style">
             <a :href="google+c.card" target="_blank">
             <h3 class="card-name">{{c.card}}</h3>
             </a>
-            <img class="card-img" :src="c.path" :style="c.style">
         </div>
       </transition-group>
     </div>
@@ -52,6 +52,16 @@ export default {
   },
   mounted(){
     this.initial();
+
+    if(innerWidth>innerHeight){
+      document.getElementById('app').style.width='100vw';
+    }
+
+  },
+  destroyed(){
+    if(innerWidth>innerHeight){
+      document.getElementById('app').style.width='50vw';
+    }
   },
   methods:{
     initial(){  
@@ -87,24 +97,17 @@ export default {
         this.each[i].path = d[i].path;
         this.each[i].card = d[i].card;
       }
-      this.draw=true
+      this.draw=true;
+
     }
   }
 }
 </script>
 
 <style scoped>
-.result{
-}
 .card{
-  padding-top:10px;
-  padding-bottom:20px;
-  border-top:1px solid rgba(0,0,0,.1);
-
-}
-.r-card{
-
-
+  margin: 10px 15px;
+  display:inline-block;
 }
 
 </style>

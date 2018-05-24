@@ -13,7 +13,7 @@ export default {
   mounted(){
     if(innerWidth>innerHeight){
       console.log('computer')
-      document.getElementById('app').style.width="50vh";
+      document.getElementById('app').style.width="50vw";
     }
 
   },
@@ -51,7 +51,7 @@ body{
 }
 
 .router{
-  height:100vh;
+  min-height:100vh;
   animation-duration:.4s;
 }
 
@@ -69,6 +69,19 @@ body{
 img{
   width:150px;
 }
+
+a{
+  color:rgb(3, 57, 101);
+}
+
+a:hover{
+  color:rgba(33,133,201,.5);
+};
+
+a:visited{
+  color:rgba(3, 57, 101,.5);
+
+};
 
 .choose{
   padding:10px;
