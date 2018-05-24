@@ -130,7 +130,7 @@ export default {
 
 <style scoped>
 .result{
-  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255,.5);
   padding:20px;
   color:black;
   border:solid black;

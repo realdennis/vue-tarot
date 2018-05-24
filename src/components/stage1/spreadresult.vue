@@ -108,6 +108,8 @@ export default {
 .card{
   margin: 10px 15px;
   display:inline-block;
+  background-color:rgba(255,255,255,.5);
+  padding:20px;
 }
 
 </style>

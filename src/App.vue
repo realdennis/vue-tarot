@@ -27,18 +27,35 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 #app{
+
+  background-image:url('./assets/bg.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat:no-repeat;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow:scroll;
+  -webkit-overflow-scrolling:touch;
 	text-align: center;
   margin:0px auto;
 }
 *{
-  text-shadow: rgba(255,255,250,.4) 0.1em 0.1em 0.2em
+  font-weight:600;
+  text-shadow: rgba(255,255,250,.4) 0.02em 0.05em 0.3em;
+}
+html,body{
+
+  overflow:hidden;
 }
 html{
-
-  background-image:url('./assets/bg.jpg');
-  background-position: center;
+  background: rgba(190, 180, 173,0.9);
 }
 body{
+
   box-sizing:border-box;
   -webkit-user-select:none ;
   -moz-user-select: none ;
@@ -49,7 +66,6 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-/*  background: rgba(233, 240, 255,0.9);*/
   height:100%;
 
   font-family: Monaco,Helvetica, monospace, "Lucida Console","Comic Sans MS", sans-serif;
