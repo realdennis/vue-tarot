@@ -5,11 +5,11 @@
     </div>
     
       <div class="contents">
-        <img class="JOJO2" :src="path">
+        <img class="jojo" src="../../assets/jojo.jpg" alt="這是命運的紙牌，塔羅牌！">
         <br>
         <h3>This is an Open Source Project</h3>
         <a href='https://github.com/realdennis/vue-tarot'>
-                <img class="github" :src="gPath" alt="Github">
+                <img class="github" src="../../assets/github.jpg" alt="Github">
                 <br>
                 Github
         </a>  
@@ -25,21 +25,15 @@ export default {
   },
   data () {
     return {
-      gPath:'./static/github.jpg',
-      path:'./static/JOJO2.jpg',
-      msg: 'Hello World!'
     }
   },
   methods:{
-    leaveHandler(){
-      history.back();
-    }
   }
 }
 </script>
 
 <style scoped>
-.JOJO2{
+.jojo{
   width:220px;
 }
 .github{

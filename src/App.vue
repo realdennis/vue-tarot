@@ -52,7 +52,7 @@ body{
 
 .router{
   height:100vh;
-  animation-duration:.5s;
+  animation-duration:.4s;
 }
 
 .button {
