@@ -130,13 +130,15 @@ export default {
 
 <style scoped>
 .result{
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(255,255,250,.4);
   padding:20px;
   color:black;
   border:solid black;
-  border-width:2px;
+  border-width:1px;
   margin:10px;
   margin-bottom:50px;
+
+  border-radius:10px;
 }
 
 .result-img{

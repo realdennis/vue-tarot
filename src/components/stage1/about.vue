@@ -8,10 +8,9 @@
         <img class="jojo" src="../../assets/jojo.jpg" alt="這是命運的紙牌，塔羅牌！">
         <br>
         <h3>This is an Open Source Project</h3>
+        <br>
         <a href='https://github.com/realdennis/vue-tarot'>
-                <img class="github" src="../../assets/github.jpg" alt="Github">
-                <br>
-                Github
+                GitHub
         </a>  
       </div>
   </div>
@@ -36,15 +35,13 @@ export default {
 .jojo{
   width:220px;
 }
-.github{
-  width:40px;
-}
 .contents{
-  background-color: white;
+  background-color: rgba(255,255,250,.4);
   text-align: center; 
-  padding:10px;
-  border:solid black; 
+  padding:30px;
+  border:solid black 1.5px; 
   margin:10px;
+  border-radius:10px;
 }
 
 </style>

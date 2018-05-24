@@ -44,7 +44,10 @@ export default {
 <style scoped>
 .menu-button{
   padding:30% 20%;
-  background-color:rgba(22,150, 200,0.2);
+/*  background-color:rgba(22,150, 200,0.3);*/
+  border-radius:10px;
+  background-color:rgba(255,255,250,.4);
+  color:rgba(3, 57, 101,.8);;
   margin-bottom:10px;
 }
 

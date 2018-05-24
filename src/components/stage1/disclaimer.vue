@@ -37,7 +37,10 @@ export default {
 
 .cotents{
   text-align: center;
-  border:solid gray;
+  
+  background-color: rgba(255,255,250,.4);
+  border:solid rgba(0,0,0,.7) 1px;
+  border-radius:10px;
 
   padding:30px;
   margin:20px;

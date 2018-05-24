@@ -27,12 +27,6 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 #app{
-
-  background-image:url('./assets/bg.jpg');
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat:no-repeat;
-
   position:absolute;
   top:0;
   left:0;
@@ -53,6 +47,7 @@ html,body{
 }
 html{
   background: rgba(190, 180, 173,0.9);
+  
 }
 body{
 
@@ -72,8 +67,6 @@ body{
 }
 
 .router{
-  min-height:100vh;
-  animation-duration:.4s;
 }
 
 .button {
