@@ -84,7 +84,7 @@ export default {
     tEnd(e){
       let touchTime = (e.timeStamp-this.time)/1000;
 
-      if(touchTime<2) return
+      //if(touchTime<2) return
 
       this.msg="Go Back"
       console.log(touchTime);
