@@ -49,9 +49,6 @@ import {  } from 'vux'
 let daily = require('./draw.js').daily
 
 export default {
-  components: {
-    
-  },
   data () {
     return {
       time:{
@@ -70,10 +67,6 @@ export default {
       google:'https://google.com/search?q='
     }
   },
-  mounted(){
-    },
-  computed:{
-  },
   created(){
     let rc = this.$ls.get('daily','nothing')
     if(rc=='nothing') return;
@@ -81,11 +74,7 @@ export default {
     this.render(rc);
   },
   methods:{
-    leaveHandler(){
-      history.back();
-    },
     render(d){
-
       if(d.reversed) this.style='transform: scaleY(-1);'
       this.path = d.path;
       this.mean = d.mean;
@@ -100,8 +89,6 @@ export default {
       this.size+=50;
     },
     tEnd(e){
-      let touchtime = (e.timeStamp-this.startTouchTime)/1000;
-      //if(touchTime<1) return
       let d = daily();
       let now = new Date;
       d.time = {

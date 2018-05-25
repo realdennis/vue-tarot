@@ -31,13 +31,6 @@ export default {
   components: {
     Flexbox, FlexboxItem
   },
-  data () {
-    return {
-      msg: 'Hello World!'
-    }
-  },
-  methods:{
-  }
 }
 </script>
 

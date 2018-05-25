@@ -5,7 +5,7 @@
     </div>
     
       <div class="contents">
-        <img class="jojo" src="../../assets/jojo.jpg" alt="這是命運的紙牌，塔羅牌！">
+        <img class="jojo" src="../assets/jojo.jpg" alt="這是命運的紙牌，塔羅牌！">
         <br>
         <h3>This is an Open Source Project</h3>
         <br>
@@ -17,17 +17,7 @@
 </template>
 
 <script>
-import {  } from 'vux'
-
 export default {
-  components: {
-  },
-  data () {
-    return {
-    }
-  },
-  methods:{
-  }
 }
 </script>
 

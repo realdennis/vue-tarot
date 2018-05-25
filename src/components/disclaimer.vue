@@ -15,21 +15,8 @@
 </template>
 
 <script>
-import {  } from 'vux'
 
 export default {
-  components: {
-  },
-  data () {
-    return {
-      msg: 'Hello World!'
-    }
-  },
-  methods:{
-    leaveHandler(){
-      history.back();
-    }
-  }
 }
 </script>
 

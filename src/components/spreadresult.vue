@@ -74,13 +74,6 @@ export default {
       }
       this.number = num;
     },
-    leaveHandler(){
-      history.back();
-    },
-    tStart(e){
-      this.time = e.timeStamp;
-      this.size+=50;
-    },
     tEnd(e){
       let touchTime = (e.timeStamp-this.time)/1000;
 
