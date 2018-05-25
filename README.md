@@ -2,7 +2,8 @@
 
 _Tarot Bot_ 
 基於Vue.js實作的塔羅牌App
-![](https://media.giphy.com/media/5t3S5NGsvuViRfcp8R/giphy.gif)
+![](https://thumbs.gfycat.com/SlipperyGlitteringIrishdraughthorse-size_restricted.gif)
+
 線上版的塔羅牌App，提供“每日運勢”、“無牌陣抽牌”。
 僅第一次使用需要聯網
 
