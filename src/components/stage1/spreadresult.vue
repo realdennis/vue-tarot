@@ -7,9 +7,9 @@
     <div>
       <transition-group name="bounce" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
-            <img class="card-img" :src="c.path" :style="c.style">
+            <img class="card-img result-img" :src="c.path" :style="c.style">
             <a :href="google+c.card" target="_blank">
-            <h3 class="card-name">{{c.card}}</h3>
+             <h3 class="card-name">{{c.card}}</h3>
             </a>
         </div>
       </transition-group>
@@ -108,9 +108,14 @@ export default {
 .card{
   margin: 10px 15px;
   display:inline-block;
+  box-sizing: border-box;
+  width:200px;
+  height:330px;
+  padding-top:20px;
+  vertical-align: middle;
+  
   background-color:rgba(255,255,255,.6);
 
-  padding:20px 20px 5px 20px;
   border-radius:10px;
   border:1px rgba(0,0,0,.7) solid;
 }

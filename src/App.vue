@@ -66,6 +66,10 @@ body{
 img{
   width:150px;
 }
+.result-img{
+
+  height:260px;
+}
 
 a{
   color:rgb(3, 57, 101);
