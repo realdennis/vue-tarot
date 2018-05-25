@@ -77,7 +77,7 @@ export default {
   created(){
     let rc = this.$ls.get('daily','nothing')
     if(rc=='nothing') return;
-    console.log(rc)
+    //console.log(rc)
     this.render(rc);
   },
   methods:{
