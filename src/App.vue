@@ -27,30 +27,18 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 #app{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  overflow:scroll;
-  -webkit-overflow-scrolling:touch;
 	text-align: center;
   margin:0px auto;
 }
 *{
   font-weight:600;
   text-shadow: rgba(255,255,250,.4) 0.02em 0.05em 0.3em;
+  font-family: Monaco,Helvetica, monospace, "Lucida Console","Comic Sans MS", sans-serif;
 }
-html,body{
 
-  overflow:hidden;
-}
-html{
-  background: rgba(190, 180, 173,0.9);
-  
-}
 body{
 
+  background-color: rgba(190, 180, 173,0.9);
   box-sizing:border-box;
   -webkit-user-select:none ;
   -moz-user-select: none ;
@@ -61,12 +49,6 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  height:100%;
-
-  font-family: Monaco,Helvetica, monospace, "Lucida Console","Comic Sans MS", sans-serif;
-}
-
-.router{
 }
 
 .button {
@@ -90,12 +72,12 @@ a{
 
 a:hover{
   color:rgba(33,133,201,.5);
-};
+}
 
 a:visited{
   color:rgba(3, 57, 101,.5);
 
-};
+}
 
 .choose{
   padding:10px;
