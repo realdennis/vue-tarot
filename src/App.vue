@@ -10,7 +10,7 @@ export default {
   name: 'app',
   mounted(){
     if(innerWidth>innerHeight){
-      console.log('computer')
+      //console.log('computer')
       document.getElementById('app').style.width="50vw";
     }
 

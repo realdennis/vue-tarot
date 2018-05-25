@@ -87,7 +87,7 @@ export default {
       //if(touchTime<2) return
 
       this.msg="Go Back"
-      console.log(touchTime);
+      //console.log(touchTime);
       //if(touchTime<1) return;
       //這邊抽牌！
       let d = s_result(this.number);
