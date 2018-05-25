@@ -1,8 +1,10 @@
 # Tarobot
 
 _Tarot Bot_ 
+
 基於Vue.js實作的塔羅牌App
-![](https://thumbs.gfycat.com/SlipperyGlitteringIrishdraughthorse-size_restricted.gif)
+
+![移動端gif](https://thumbs.gfycat.com/SlipperyGlitteringIrishdraughthorse-size_restricted.gif)
 
 線上版的塔羅牌App，提供“每日運勢”、“無牌陣抽牌”。
 僅第一次使用需要聯網
@@ -14,7 +16,8 @@ _Tarot Bot_
 
 ## 桌面版(Chrome)
 
-![](https://media.giphy.com/media/l2viTEfgVUPjqNA20b/giphy.gif)
+
+![桌面端gif](https://thumbs.gfycat.com/HelplessWanFlee-size_restricted.gif)
 
 ## Introduce
 
