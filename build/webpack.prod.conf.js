@@ -13,7 +13,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const loadMinified = require('./load-minified')
-
 const env = config.build.env
 
 const webpackConfig = merge(baseWebpackConfig, {
@@ -102,10 +101,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     new SWPrecacheWebpackPlugin({
       cacheId: 'tarobot',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      staticFileGlobs: ['docs/**/*.{js,html,css}'],
       minify: true,
-      stripPrefix: 'dist/'
-    })
+      stripPrefix: 'docs/'
+    }),
   ]
 })
 
