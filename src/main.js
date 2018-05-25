@@ -8,11 +8,11 @@ import App from './App'
 import Home from '@/components/home'
 import Start from '@/components/start'
 
-import About from '@/components/stage1/about'
-import Daily from '@/components/stage1/daily'
-import Disclaimer from '@/components/stage1/disclaimer'
-import Spread from '@/components/stage1/spread'
-import SpreadResult from '@/components/stage1/spreadresult'
+import About from '@/components/about'
+import Daily from '@/components/daily'
+import Disclaimer from '@/components/disclaimer'
+import Spread from '@/components/spread'
+import SpreadResult from '@/components/spreadresult'
 
 import Storage from 'vue-ls'
 

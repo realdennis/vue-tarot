@@ -19,11 +19,6 @@ import { XButton,Divider } from 'vux'
 export default {
   components: {
     XButton,Divider
-  },
-  data () {
-    return {
-      msg: ''
-    }
   }
 }
 </script>
