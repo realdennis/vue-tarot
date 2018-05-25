@@ -1,6 +1,6 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-    <x-icon @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:1px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
+    <x-icon @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
 	 <router-view class="router"></router-view>
   </div>
 </template>
