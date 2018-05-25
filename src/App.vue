@@ -38,7 +38,8 @@ export default {
 
 body{
 
-  background-color: rgba(190, 180, 173,0.9);
+  background-color: rgba(230, 180, 173,0.4);
+
   box-sizing:border-box;
   -webkit-user-select:none ;
   -moz-user-select: none ;
