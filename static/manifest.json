@@ -36,6 +36,26 @@
    "sizes": "144x144",
    "type": "image\/png",
    "density": "3.0"
+  },
+  {
+   "src": "./img/icons/android-icon-144x144.png",
+   "sizes": "192x192",
+   "type": "image\/png",
+   "density": "3.0"
+  },
+  {
+   "src": "./img/icons/android-icon-144x144.png",
+   "sizes": "144x144",
+   "type": "image\/png",
+   "density": "3.0"
   }
- ]
+ ],
+
+ "prefer_related_applications": true,
+ "related_applications": [{
+    "platform": "web",
+    "url": "https://realdennis.github.io/vue-tarot/"
+  }],
+
+  "theme_color":"rgba(230, 180, 173,0.4)"
 }
