@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home-title">
-      <img class="logo" src="../assets/logo.jpg">
+      <img class="logo" src="../assets/logo.jpg" alt="Logo">
       <h1> Tarobot </h1>
       <p>塔羅機器人</p>
     </div>
@@ -22,30 +22,32 @@ export default {
   },
   data(){
     return{
-      msg:"Let's Start From Here"
+      msg:""
+    }
+  },
+  methods:{
+    offline(){
+      if ('serviceWorker' in navigator){
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+          this.msg = 'Progressive Web App'
+          let s_result = require('./draw.js').s_result;
+          let d = s_result(78);
+          (async ()=>{
+            for(let i=0;i<78;i++){
+              let res = await fetch(d[i].path);
+            }
+          })();
+        }else{
+          this.msg = 'Add to Home Screen (Using offline)';
+        }
+      }else{
+          //do not cache like a monkey...
+          this.msg = "Let's Start From Here"
+      }
     }
   },
   created(){
-    const offline = ()=>{
-      let s_result = require('./draw.js').s_result;
-      let d = s_result(78);
-      (async ()=>{
-        for(let i=0;i<78;i++){
-          let res = await fetch(d[i].path);
-        }
-      })();
-    };
-
-    if ('serviceWorker' in navigator){
-      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-        offline();
-      }else{
-        this.msg = 'Add to home screen (using offline)';
-        //do something to tell user add to homescreen
-      }
-    }else{
-        //do not cache like a monkey...
-    }
+    this.offline()
   }
 }
 </script>
