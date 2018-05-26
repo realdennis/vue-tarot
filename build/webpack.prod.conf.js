@@ -101,7 +101,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new SWPrecacheWebpackPlugin({
       cacheId: 'tarobot',
       filename: 'service-worker.js',
-      staticFileGlobs: ['docs/**/*.{js,html,css}'],
+      staticFileGlobs: ['docs/**/*.{js,html,css}','docs/static/tarot/*.jpg'],
       minify: true,
       stripPrefix: 'docs/'
     }),
