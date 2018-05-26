@@ -102,8 +102,12 @@ const webpackConfig = merge(baseWebpackConfig, {
       cacheId: 'tarobot',
       filename: 'service-worker.js',
       staticFileGlobs: ['docs/**/*.{js,html,css}','docs/static/img/*.jpg','docs/static/tarot/*.jpg'],
-      minify: false,
-      stripPrefix: 'docs/'
+      minify: true,
+      stripPrefix: 'docs/',
+      "runtimeCaching": [{
+         "handler": "fastest",
+         "urlPattern": "static/tarot/*.jpg"
+      }]
     }),
   ]
 })
