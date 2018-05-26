@@ -3,12 +3,12 @@
     <div class="home-title">
       <img class="logo" src="../assets/logo.jpg" alt="Logo">
       <h1> Tarobot </h1>
-      <p>塔羅機器人</p>
+      <p>{{$t("message.name")}}</p>
     </div>
     <divider>{{ msg }}</divider>
     <div class="start">
-      <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">開始使用</x-button>
-      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">直接抽一張</x-button>
+      <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">{{ $t("message.start") }}</x-button>
+      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">{{$t("message.draw")}}</x-button>
     </div>
   </div>
 </template>

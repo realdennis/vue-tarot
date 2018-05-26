@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
+    "vue-i18n": "^7.7.0",
     "vue-ls": "^3.0.5",
     "vue-router": "^3.0.1",
     "vue2-animate": "^2.0.0",

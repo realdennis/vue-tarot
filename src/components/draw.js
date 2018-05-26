@@ -2,7 +2,7 @@
 const tarot = require('./tarot.json')
 const suit_dic = {'major':'ar','wands':'wa','cups':'cu','swords':'sw','coins':'pe'}
 const rank_dic = {'page':'pa','knight':'kn','queen':'qu','king':'ki'}
-const dual_dic = {0:['正位','light'],1:['逆位','shadow']}
+const dual_dic = {0:['正位','light','Right'],1:['逆位','shadow','Reversed']}
 
 function cardinfo(index){
 	let chineseName = tarot['tarot'][index]['name2']
@@ -10,7 +10,11 @@ function cardinfo(index){
 	let dual = Math.round(Math.random())?0:1
 
 	let flag = dual_dic[dual][0]
-	let text = `${flag} ${chineseName}`
+	let text = `${flag}<br>${chineseName}`
+
+	let flagEn = dual_dic[dual][2]
+	let textEn = `${englishName}`
+
 	let s = tarot['tarot'][index]['suit']
 	let r = tarot['tarot'][index]['rank']
 	let suit = suit_dic[s];
@@ -28,7 +32,14 @@ function cardinfo(index){
 	//console.log(mean[randomChoice]) // Mean
 	return {
 		reversed:dual,
-		card:text,
+		card:{
+			en:englishName,
+			tw:chineseName
+		},
+		flag:{
+			en:flagEn,
+			tw:flag
+		},
 		path:'./static/tarot/'+tarotName,
 		mean:mean[randomChoice]
 	}

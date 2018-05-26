@@ -1,23 +1,23 @@
 <template>
   <div id="menu">
   	<div class="title">
-  		<h1>主選單</h1>	
+  		<h1>{{$t("message.main")}}</h1>	
   	</div>
   	<div class="choose" v-show="true">
       <flexbox>
           <flexbox-item>
-  					<x-button link="daily" class="menu-button">每日運勢</x-button>
+  					<x-button link="daily" class="menu-button">{{$t("message.daily")}}</x-button>
           </flexbox-item>
           <flexbox-item>
-  					<x-button link="spread" class="menu-button">抽牌機！</x-button>
+  					<x-button link="spread" class="menu-button">{{$t("message.spread")}}</x-button>
           </flexbox-item>
         </flexbox>
         <flexbox>
           <flexbox-item>
-					<x-button link="about" class="menu-button">關於我們</x-button>
+					<x-button link="about" class="menu-button">{{$t("message.about")}}</x-button>
 					</flexbox-item>
           <flexbox-item>
-          <x-button link="disclaimer" class="menu-button" >免責聲明</x-button>
+          <x-button link="disclaimer" class="menu-button" >{{$t("message.disclaimer")}}</x-button>
         </flexbox-item>
       </flexbox>
   	</div>
