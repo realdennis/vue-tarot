@@ -19,6 +19,13 @@ import Storage from 'vue-ls'
 import { XButton,Divider,Flexbox,FlexboxItem } from 'vux'
 require('vue2-animate/dist/vue2-animate.min.css')
 
+import VueI18n from 'vue-i18n'
+Vue.use(VueI18n)
+
+import langTw from '@/assets/lang/tw' 
+import langCn from '@/assets/lang/cn' 
+import langEn from '@/assets/lang/en'
+
 Vue.component('XButton', XButton)
 Vue.component('divider', Divider)
 Vue.component('flexbox', Flexbox)
@@ -26,6 +33,18 @@ Vue.component('flexbox-item', FlexboxItem)
 
 Vue.use(Storage)
 Vue.use(VueRouter)
+
+const i18n = new VueI18n({
+  locale: 'en', 
+  fallbackLocale: 'en',
+  messages:{
+  	'zh-TW':langTw,
+  	'zh-CN':langCn,
+  	'en':langEn
+  }
+})
+
+
 
 const routes = [{
   path: '/',
@@ -62,6 +81,6 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  router,
+  router, i18n,
   render: h => h(App)
 }).$mount('#app')

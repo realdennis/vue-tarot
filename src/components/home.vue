@@ -1,15 +1,18 @@
 <template>
   <div>
     <div class="home-title">
-      <img class="logo" src="../assets/logo.jpg">
+      <img @click="changeLocale" class="logo" src="../assets/logo.jpg" alt="Logo">
       <h1> Tarobot </h1>
-      <p>塔羅機器人</p>
+      <p>{{$t("message.name")}}</p>
     </div>
     <divider>{{ msg }}</divider>
+
+    <p style="opacity:.3;font-size:10px">Tap Logo to change language if you want</p>
     <div class="start">
-      <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">開始使用</x-button>
-      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">直接抽一張</x-button>
+      <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">{{ $t("message.start") }}</x-button>
+      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">{{$t("message.draw")}}</x-button>
     </div>
+
   </div>
 </template>
 
@@ -22,30 +25,42 @@ export default {
   },
   data(){
     return{
-      msg:"Let's Start From Here"
+      msg:""
+    }
+  },
+  methods:{
+    changeLocale(){
+      const list = ['zh-TW','zh-CN','en'];
+      let nowLocale = this.$root.$i18n.locale;
+
+      let nowIndex = list.indexOf(nowLocale);
+      let newIndex = (nowIndex+1)%3;
+
+      this.$root.$i18n.locale = list[newIndex];
+
+    },
+    offline(){
+      if ('serviceWorker' in navigator){
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+          this.msg = 'Progressive Web App'
+          let s_result = require('./draw.js').s_result;
+          let d = s_result(78);
+          (async ()=>{
+            for(let i=0;i<78;i++){
+              let res = await fetch(d[i].path);
+            }
+          })();
+        }else{
+          this.msg = 'Add to Home Screen (Using offline)';
+        }
+      }else{
+          //do not cache like a monkey...
+          this.msg = "Let's Start From Here"
+      }
     }
   },
   created(){
-    const offline = ()=>{
-      let s_result = require('./draw.js').s_result;
-      let d = s_result(78);
-      (async ()=>{
-        for(let i=0;i<78;i++){
-          let res = await fetch(d[i].path);
-        }
-      })();
-    };
-
-    if ('serviceWorker' in navigator){
-      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-        offline();
-      }else{
-        this.msg = 'Add to home screen (using offline)';
-        //do something to tell user add to homescreen
-      }
-    }else{
-        //do not cache like a monkey...
-    }
+    this.offline()
   }
 }
 </script>

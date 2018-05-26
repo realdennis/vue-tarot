@@ -8,7 +8,13 @@
 <script>
 export default {
   name: 'app',
+  created(){
+
+    this.$root.$i18n.locale = navigator.language || navigator.userLanguage; 
+    console.log(this.$root.$i18n.locale)
+  },
   mounted(){
+
     if(innerWidth>innerHeight){
       //console.log('computer')
       document.getElementById('app').style.width="50vw";

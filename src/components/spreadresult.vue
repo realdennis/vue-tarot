@@ -1,23 +1,24 @@
 <template>
   <div id="result">
   	<div class="title">
-  		<h1>抽牌機</h1>
+  		<h1>{{$t("message.spread")}}</h1>
   	</div>
 
     <div>
       <transition-group name="bounce" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
+            <h3 style="opacity: .8">{{c.flagName}}</h3>
             <img class="card-img result-img" :src="c.path" :style="c.style">
-            <a :href="google+c.card" target="_blank">
-             <h3 class="card-name">{{c.card}}</h3>
+            <a :href="google+c.cardName" target="_blank">
+             <h3 class="card-name">{{c.cardName}}</h3>
             </a>
         </div>
       </transition-group>
     </div>
 
     <div class="choose-button" id="enter" v-if="!draw" >
-      <h3>您想要抽 {{ number }} 張牌</h3>
-      <p>請冥想並按下按鈕...</p>
+      <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
+      <p>{{$t("message.meditation")}}</p>
       <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
     </div>
 
@@ -40,9 +41,6 @@ export default {
       time:0,
       draw:false,
       path:'/static/tarot/',
-      mean:'',
-      card:'',
-      style:'',
       each:{},
       google:'https://google.com/search?q='
     }
@@ -78,8 +76,6 @@ export default {
       let touchTime = (e.timeStamp-this.time)/1000;
 
       //if(touchTime<2) return
-
-      this.msg="Go Back"
       //console.log(touchTime);
       //if(touchTime<1) return;
       //這邊抽牌！
@@ -89,6 +85,23 @@ export default {
         if(d[i].reversed) this.each[i].style='transform: scaleY(-1);'
         this.each[i].path = d[i].path;
         this.each[i].card = d[i].card;
+        this.each[i].flag = d[i].flag;
+        if(this.$root.$i18n.locale ==='zh-TW' || this.$root.$i18n.locale==='zh-CN'){
+          this.each[i].cardName = d[i].card.tw;
+          this.each[i].flagName = d[i].flag.tw;
+        }else{
+          this.each[i].cardName = d[i].card.en;
+          this.each[i].flagName = d[i].flag.en;
+        }
+
+
+
+        
+        if(this.$root.$i18n.locale ==='zh-TW' || this.$root.$i18n.locale==='zh-CN'){
+          this.each[i].card= d[i].cardTw;
+        }else{
+          this.each[i].card= d[i].cardEn;
+        }
       }
       this.draw=true;
 
@@ -103,8 +116,8 @@ export default {
   display:inline-block;
   box-sizing: border-box;
   width:200px;
-  height:330px;
-  padding-top:20px;
+  height:350px;
+  padding-top:10px;
   vertical-align: middle;
   
   background-color:rgba(255,255,255,.6);
