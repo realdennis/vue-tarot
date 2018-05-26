@@ -104,7 +104,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       staticFileGlobs: ['docs/**/*.{js,html,css}','docs/static/img/*.jpg'],
       minify: true,
       stripPrefix: 'docs/',
-      "runtimeCaching": [{
+      runtimeCaching: [{
          "handler": "cacheFirst",
          "urlPattern": "static/tarot/*.jpg"
       }]
