@@ -1,6 +1,6 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-    <x-icon v-if="!firefox" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
+    <x-icon v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
 	 <router-view class="router"></router-view>
   </div>
 </template>
@@ -9,8 +9,8 @@
 export default {
   name: 'app',
   computed:{
-    firefox(){
-      if(navigator.userAgent.toLowerCase().indexOf('firefox')>-1) return true;
+    pwa(){
+      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) return true;
       return false;
     }
   },
@@ -22,7 +22,6 @@ export default {
       //console.log('computer')
       document.getElementById('app').style.width="50vw";
     }
-
   },
   methods:{
     goBack(){

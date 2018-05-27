@@ -5,7 +5,7 @@
     </div>
 
     <transition name="zoom">
-      <div v-if="draw" style="animation-duration: 2s">
+      <div v-if="draw" class="r-animation" style="animation-duration: 2s">
         <div class="result">
           <div  class="flex-result" style="padding:5px;">
           <flexbox style="position:relative;">
@@ -87,6 +87,9 @@ export default {
     dailyshot(){
       let result = document.querySelector('.result');
       let temp =result.style.backgroundColor;
+
+      document.querySelector('.r-animation').style.animationDuration = '0s';
+
       result.style.backgroundColor='rgb(230, 180, 173,.4)';
       result.style.transform = 'scale(0.8,0.8)';
 
