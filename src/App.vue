@@ -11,7 +11,7 @@ export default {
   created(){
 
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage; 
-    console.log(this.$root.$i18n.locale)
+    //console.log(this.$root.$i18n.locale)
   },
   mounted(){
 

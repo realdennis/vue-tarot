@@ -7,6 +7,7 @@
     <transition name="zoom">
       <div v-if="draw" style="animation-duration: 2s">
         <div class="result">
+          <div  class="flex-result" style="padding:5px;">
           <flexbox style="position:relative;">
             <img class="result-img" :src="path" :style="style">
             <flexbox-item>
@@ -24,7 +25,9 @@
               </div>
             </flexbox-item>
           </flexbox>
+          </div>
         </div>
+        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Get Screenshot</x-button>
         <div class="draw-time"> 
         <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
           <br>
@@ -47,6 +50,8 @@
 
 <script>
 import {  } from 'vux'
+
+import domtoimage from 'dom-to-image';
 //import  {}  from './draw'
 let daily = require('./draw.js').daily
 
@@ -78,7 +83,21 @@ export default {
     //console.log(rc)
     this.render(rc);
   },
-  methods:{
+  methods:{    
+    dailyshot(){
+      let result = document.querySelector('.flex-result');
+      domtoimage.toJpeg(result,{
+        bgcolor:'#F9EDEA',
+        height:result.offsetHeight+5,
+        width:result.offsetWidth+10,
+        })
+        .then( dataUrl => {
+          var link = document.createElement('a');
+          link.download = Date.now()+'.jpg';
+          link.href = dataUrl;
+          link.click();
+        })
+    },
     render(d){
       if(d.reversed) this.style='transform: scaleY(-1);'
       this.path = d.path;
@@ -138,8 +157,6 @@ export default {
   border-width:1px;
 
   margin:10px;
-  margin-bottom:50px;
-  margin-bottom:50px;
   border-radius:10px;
 }
 
@@ -147,6 +164,7 @@ export default {
 }
 
 .draw-time{
+  margin-top:30px;
 }
 
 .choose{
