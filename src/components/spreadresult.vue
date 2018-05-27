@@ -4,8 +4,11 @@
   		<h1>{{$t("message.spread")}}</h1>
   	</div>
 
-    <div>
-      <transition-group name="bounce" tag="div">
+    <div v-if="draw">
+
+      <x-button @click.native="domshot" plain type="default" style="width:50%">Get Screenshot</x-button>
+
+      <transition-group name="bounce" tag="div" class="card-set" >
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
             <h3 style="opacity: .8">{{c.flagName}}</h3>
             <img class="card-img result-img" :src="c.path" :style="c.style">
@@ -28,7 +31,7 @@
 
 <script>
 import {} from 'vux'
-
+import domtoimage from 'dom-to-image';
 
 let s_result = require('./draw.js').s_result;
 export default {
@@ -62,6 +65,35 @@ export default {
     }
   },
   methods:{
+    domshot(){
+      let imageWidth;
+      switch(this.number){
+        case 1:
+          imageWidth = 600;
+          break;
+        case 3:
+          imageWidth = 900;
+          break;
+        case 5:
+          imageWidth = 1200;
+          break;
+        default:
+          imageWidth = 1200;
+          break;
+      }
+      domtoimage.toJpeg(document.querySelector('.card-set'),{
+        quality:0.9,
+        bgcolor:'rgb(230, 180, 173)',
+        height:370,
+        width:imageWidth
+        })
+        .then( dataUrl => {
+          var link = document.createElement('a');
+          link.download = Date.now()+'.jpeg';
+          link.href = dataUrl;
+          link.click();
+        })
+    },
     initial(){  
       let num = this.$route.params.num;
       if(num==undefined) return;
@@ -70,7 +102,7 @@ export default {
         history.go(-1);
         return
       }
-      this.number = num;
+      this.number = Number(num);
     },
     tEnd(e){
       let touchTime = (e.timeStamp-this.time)/1000;
