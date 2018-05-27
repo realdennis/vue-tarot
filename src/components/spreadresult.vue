@@ -66,6 +66,14 @@ export default {
   },
   methods:{
     domshot(){
+      function delay(sec) {   
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            resolve('');
+          }, sec*1000);
+        });
+      }
+
 
       let imageWidth , imageHeight=370;
       switch(this.number){
@@ -84,12 +92,30 @@ export default {
       }
 
       let cardSet = document.querySelector('.card-set')
+
+
+      document.querySelectorAll('.card').forEach(node=>{
+        node.style.animationDuration = '';
+        //禁用動畫
+      });
+      cardSet.style.width=(imageWidth)+'px';
+      cardSet.style.height=(imageHeight)+'px';
       cardSet.style.backgroundColor='rgb(230, 180, 173,.4)';
-      cardSet.style.width=imageWidth+'px';
-      cardSet.style.height=imageHeight+'px';
-      html2canvas(cardSet).then(canvas=>{
+      cardSet.style.transform = 'scale(0.8,0.8)';
+      cardSet.style.transform = '-ms-transform(0.8,0.8)';
+      cardSet.style.transform = '-webkit-transform(0.8,0.8)';
+      cardSet.style.borderRadius = "10px";
+
+
+      delay(1).then(()=>html2canvas(cardSet).then(canvas=>{
         cardSet.style.width = '';
         cardSet.style.height= '';
+        cardSet.style.borderRadius = '';
+        cardSet.style.transform = '';
+        cardSet.style.transform = '';
+        cardSet.style.transform = '';
+      
+
         cardSet.style.backgroundColor='';
         let dataUrl = canvas.toDataURL();
         var link = document.createElement('a');
@@ -97,7 +123,7 @@ export default {
         let timestamp = Date.now()
         link.download = `${timestamp}.jpg`
         link.click();
-      })
+      }))
     },
     initial(){  
       let num = this.$route.params.num;

@@ -86,7 +86,15 @@ export default {
   methods:{    
     dailyshot(){
       let result = document.querySelector('.result');
+      let temp =result.style.backgroundColor;
+      result.style.backgroundColor='rgb(230, 180, 173,.4)';
+      result.style.transform = 'scale(0.8,0.8)';
+
       html2canvas(result).then(canvas=>{
+          result.style.backgroundColor = temp;
+
+          result.style.transform = '';
+
           let dataUrl = canvas.toDataURL();
           var link = document.createElement('a');
           let now = new Date;

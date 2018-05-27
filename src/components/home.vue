@@ -25,12 +25,11 @@ export default {
   },
   data(){
     return{
-      msg:""
+      msg:"Have fun!"
     }
   },
   mounted(){
-    
-    this.$root.$i18n.locale = navigator.language || navigator.userLanguage; 
+    this.offline()
   },
   methods:{
     changeLocale(){
@@ -62,9 +61,6 @@ export default {
           this.msg = "Let's Start From Here"
       }
     }
-  },
-  created(){
-    this.offline()
   }
 }
 </script>
