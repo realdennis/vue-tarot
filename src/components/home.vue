@@ -1,15 +1,18 @@
 <template>
   <div>
     <div class="home-title">
-      <img class="logo" src="../assets/logo.jpg" alt="Logo">
+      <img @click="changeLocale" class="logo" src="../assets/logo.jpg" alt="Logo">
       <h1> Tarobot </h1>
       <p>{{$t("message.name")}}</p>
     </div>
     <divider>{{ msg }}</divider>
+
+    <p style="opacity:.3;font-size:10px">Tap Logo to change language if you want</p>
     <div class="start">
       <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">{{ $t("message.start") }}</x-button>
       <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">{{$t("message.draw")}}</x-button>
     </div>
+
   </div>
 </template>
 
@@ -26,6 +29,16 @@ export default {
     }
   },
   methods:{
+    changeLocale(){
+      const list = ['zh-TW','zh-CN','en'];
+      let nowLocale = this.$root.$i18n.locale;
+
+      let nowIndex = list.indexOf(nowLocale);
+      let newIndex = (nowIndex+1)%3;
+
+      this.$root.$i18n.locale = list[newIndex];
+
+    },
     offline(){
       if ('serviceWorker' in navigator){
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
