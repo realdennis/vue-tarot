@@ -13,7 +13,7 @@
             <h3 style="opacity: .8">{{c.flagName}}</h3>
             <img class="card-img result-img" :src="c.path" :style="c.style">
             <a :href="google+c.cardName" target="_blank">
-             <h3 class="card-name">{{c.cardName}}</h3>
+             <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
             </a>
         </div>
       </transition-group>
@@ -31,7 +31,7 @@
 
 <script>
 import {} from 'vux'
-import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas'
 
 let s_result = require('./draw.js').s_result;
 export default {
@@ -66,7 +66,8 @@ export default {
   },
   methods:{
     domshot(){
-      let imageWidth;
+
+      let imageWidth , imageHeight=370;
       switch(this.number){
         case 1:
           imageWidth = 600;
@@ -81,18 +82,22 @@ export default {
           imageWidth = 1200;
           break;
       }
-      domtoimage.toJpeg(document.querySelector('.card-set'),{
-        quality:0.9,
-        bgcolor:'rgb(230, 180, 173)',
-        height:370,
-        width:imageWidth
-        })
-        .then( dataUrl => {
-          var link = document.createElement('a');
-          link.download = Date.now()+'.jpeg';
-          link.href = dataUrl;
-          link.click();
-        })
+
+      let cardSet = document.querySelector('.card-set')
+      cardSet.style.backgroundColor='rgb(230, 180, 173,.4)';
+      cardSet.style.width=imageWidth+'px';
+      cardSet.style.height=imageHeight+'px';
+      html2canvas(cardSet).then(canvas=>{
+        cardSet.style.width = '';
+        cardSet.style.height= '';
+        cardSet.style.backgroundColor='';
+        let dataUrl = canvas.toDataURL();
+        var link = document.createElement('a');
+        link.href = dataUrl;
+        let timestamp = Date.now()
+        link.download = `${timestamp}.jpg`
+        link.click();
+      })
     },
     initial(){  
       let num = this.$route.params.num;
@@ -160,5 +165,6 @@ export default {
 
 .card-img{
 }
+
 
 </style>
