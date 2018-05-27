@@ -14,7 +14,7 @@ module.exports={
     about:'About us',
     disclaimer:'Disclaimer',
     main:'Main menu',
-    moreDisclaimer:'<p>All graphic and graphic texts are from publicly quoted sources provided at home and abroad. All graphic copyrights are owned by the original author and its website. </p>\
+    moreDisclaimer:'<p>All image and texts are from publicly quoted sources provided at home and abroad. All copyrights are owned by the original author and its website. </p>\
        <p>If the original author disagrees with the attribution of the copyright of this site\'s copyright, please inform immediately. </p>\
        <br>\
        <i>Its divination content is for reference only, this site does not bear any subsequent responsibility. </i>'

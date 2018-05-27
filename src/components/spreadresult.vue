@@ -86,17 +86,22 @@ export default {
         this.each[i].path = d[i].path;
         this.each[i].card = d[i].card;
         this.each[i].flag = d[i].flag;
-        if(this.$root.$i18n.locale ==='en'){
-          this.each[i].cardName = d[i].card.en;
-          this.each[i].flagName = d[i].flag.en;
-        }else{
+        if(this.$root.$i18n.locale ==='zh-TW' || this.$root.$i18n.locale==='zh-CN'){
           this.each[i].cardName = d[i].card.tw;
           this.each[i].flagName = d[i].flag.tw;
+        }else{
+          this.each[i].cardName = d[i].card.en;
+          this.each[i].flagName = d[i].flag.en;
         }
 
 
 
-        this.$root.$i18n.locale==='en'?this.each[i].card= d[i].cardEn : this.each[i].card= d[i].cardTw;
+        
+        if(this.$root.$i18n.locale ==='zh-TW' || this.$root.$i18n.locale==='zh-CN'){
+          this.each[i].card= d[i].cardTw;
+        }else{
+          this.each[i].card= d[i].cardEn;
+        }
       }
       this.draw=true;
 

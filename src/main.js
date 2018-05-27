@@ -36,12 +36,15 @@ Vue.use(VueRouter)
 
 const i18n = new VueI18n({
   locale: 'en', 
+  fallbackLocale: 'en',
   messages:{
-  	'tw':langTw,
-  	'cn':langCn,
+  	'zh-TW':langTw,
+  	'zh-CN':langCn,
   	'en':langEn
   }
 })
+
+
 
 const routes = [{
   path: '/',

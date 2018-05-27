@@ -83,12 +83,12 @@ export default {
       if(d.reversed) this.style='transform: scaleY(-1);'
       this.path = d.path;
       this.mean = d.mean;
-      if(this.$root.$i18n.locale ==='en'){
-        this.cardName = d.card.en;
-        this.flagName = d.flag.en;
-      }else{
+      if(this.$root.$i18n.locale ==='zh-TW' || this.$root.$i18n.locale==='zh-CN'){
         this.cardName = d.card.tw;
         this.flagName =d.flag.tw;
+      }else{
+        this.cardName = d.card.en;
+        this.flagName = d.flag.en;
       }
 
       this.time = d.time;
