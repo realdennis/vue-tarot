@@ -51,7 +51,7 @@
 <script>
 import {  } from 'vux'
 
-import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas'
 //import  {}  from './draw'
 let daily = require('./draw.js').daily
 
@@ -85,18 +85,15 @@ export default {
   },
   methods:{    
     dailyshot(){
-      let result = document.querySelector('.flex-result');
-      domtoimage.toJpeg(result,{
-        bgcolor:'#F9EDEA',
-        height:result.offsetHeight+5,
-        width:result.offsetWidth+10,
-        })
-        .then( dataUrl => {
+      let result = document.querySelector('.result');
+      html2canvas(result).then(canvas=>{
+          let dataUrl = canvas.toDataURL();
           var link = document.createElement('a');
-          link.download = Date.now()+'.jpg';
+          let now = new Date;
+          link.download =`daily-${now.getMonth()+1}-${now.getDate()}.jpg`;
           link.href = dataUrl;
           link.click();
-        })
+      })
     },
     render(d){
       if(d.reversed) this.style='transform: scaleY(-1);'
