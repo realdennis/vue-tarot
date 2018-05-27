@@ -91,13 +91,19 @@ export default {
       document.querySelector('.r-animation').style.animationDuration = '0s';
 
       result.style.backgroundColor='rgb(230, 180, 173,.4)';
+      /*
       result.style.transform = 'scale(0.8,0.8)';
-
+      result.style.webkitTransform = 'scale(0.8,0.8)';
+      result.style.MozTransform = 'scale(0.8,0.8)';
+      */
       html2canvas(result).then(canvas=>{
           result.style.backgroundColor = temp;
 
+          /*
           result.style.transform = '';
-
+          result.style.webkitTransform = '';
+          result.style.MozTransform = '';
+          */
           let dataUrl = canvas.toDataURL();
           var link = document.createElement('a');
           let now = new Date;

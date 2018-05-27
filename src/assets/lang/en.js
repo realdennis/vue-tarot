@@ -1,11 +1,11 @@
 module.exports={
   message: {
-    name: 'Tarot Robot',
+    name: '',
     start: 'Start',
     draw: "Just Draw One",
     daily:'Daily',
     moreDaily:"Once per day, reset at 12pm",
-    drawTime:'<p>Last draw on {month}/{date} {hours}</p>\
+    drawTime:'<p>Last draw on {month}/{date} {hours} o\'clock</p>\
           <p><i>Reset after {restHour} hours</i></p>',
     spread:'Spread',
     spreadChoose:'Please choose the number of cards',
