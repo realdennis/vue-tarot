@@ -3,12 +3,12 @@
   	<div class="title">
   		<h1>{{$t("message.spread")}}</h1>
   	</div>
+    <div>
+      <x-button v-if="draw" @click.native="domshot" plain type="default" style="width:50%">Screenshot</x-button>
+    </div>
 
-    <div v-if="draw">
-
-      <x-button @click.native="domshot" plain type="default" style="width:50%">Get Screenshot</x-button>
-
-      <transition-group name="bounce" tag="div" class="card-set" >
+    <div class="card-set">
+      <transition-group name="bounce" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
             <h3 style="opacity: .8">{{c.flagName}}</h3>
             <img class="card-img result-img" :src="c.path" :style="c.style">
@@ -18,7 +18,7 @@
         </div>
       </transition-group>
     </div>
-
+      
     <div class="choose-button" id="enter" v-if="!draw" >
       <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
       <p>{{$t("message.meditation")}}</p>

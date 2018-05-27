@@ -27,7 +27,7 @@
           </flexbox>
           </div>
         </div>
-        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Get Screenshot</x-button>
+        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>
         <div class="draw-time"> 
         <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
           <br>

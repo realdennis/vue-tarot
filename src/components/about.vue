@@ -9,7 +9,7 @@
         <br>
         <h3>This is an Open Source Project</h3>
         <br>
-        <a href='https://github.com/realdennis/vue-tarot'>
+        <a href='https://github.com/realdennis/vue-tarot' target="_blank">
                 GitHub
         </a>  
       </div>

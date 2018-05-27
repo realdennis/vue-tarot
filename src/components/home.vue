@@ -28,6 +28,10 @@ export default {
       msg:""
     }
   },
+  mounted(){
+    
+    this.$root.$i18n.locale = navigator.language || navigator.userLanguage; 
+  },
   methods:{
     changeLocale(){
       const list = ['zh-TW','zh-CN','en'];
