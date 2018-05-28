@@ -5,9 +5,12 @@
   	</div>
 
     <div>
-      <x-button v-if="draw" @click.native="domshot" plain type="default" style="width:50%">Screenshot</x-button>
+      <div v-if="draw">
+        <h3 >Screenshot</h3>
+        <x-button @click.native="domshot(false)" plain type="default" style="width:30%;display:inline-block;">Flat</x-button>
+        <x-button @click.native="domshot(true)" plain type="default" style="width:30%;display:inline-block">Stand</x-button>
+      </div>
     </div>
-
     <div class="card-set">
       <transition-group name="bounce" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
@@ -67,39 +70,40 @@ export default {
     }
   },
   methods:{
-    domshot(){
-      let imageWidth , imageHeight=370;
-      switch(this.number){
-        case 1:
-          imageWidth = 600;
-          break;
-        case 3:
-          imageWidth = 900;
-          break;
-        case 5:
-          imageWidth = 1200;
-          break;
-        default:
-          imageWidth = 1200;
-          break;
-      }
+    domshot(pure){
+        let imageWidth , imageHeight=370;
+        switch(this.number){
+          case 1:
+            imageWidth = 600;
+            break;
+          case 3:
+            imageWidth = 900;
+            break;
+          case 5:
+            imageWidth = 1200;
+            break;
+          default:
+            imageWidth = 1200;
+            break;
+        }
 
-      let cardSet = document.querySelector('.card-set')
+        let cardSet = document.querySelector('.card-set')
 
 
-      document.querySelectorAll('.card').forEach(node=>{
-        node.style.animationDuration = '0s';
-        //禁用動畫
-      });
-      cardSet.style.width=(imageWidth)+'px';
-      cardSet.style.height=(imageHeight)+'px';
-      cardSet.style.backgroundColor='rgb(230, 180, 173,.4)';
-      cardSet.style.transform = 'scale(0.8,0.8)';
-      cardSet.style.webkitTransform = 'scale(0.8,0.8)';
-      cardSet.style.MozTransform = 'scale(0.8,0.8)';
+        document.querySelectorAll('.card').forEach(node=>{
+          node.style.animationDuration = '0s';
+          //禁用動畫
+        });
+        if(!pure){
+          cardSet.style.width=(imageWidth)+'px';
+          cardSet.style.height=(imageHeight)+'px';
+        }
+        cardSet.style.backgroundColor='rgb(230, 180, 173,.4)';
+        cardSet.style.transform = 'scale(0.8,0.8)';
+        cardSet.style.webkitTransform = 'scale(0.8,0.8)';
+        cardSet.style.MozTransform = 'scale(0.8,0.8)';
 
-      cardSet.style.borderRadius = "10px";
-
+        cardSet.style.borderRadius = "10px";
 
       html2canvas(cardSet).then(canvas=>{
         cardSet.style.width = '';
