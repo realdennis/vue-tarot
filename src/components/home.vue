@@ -46,11 +46,10 @@ export default {
       if ('serviceWorker' in navigator){
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
           this.msg = 'Progressive Web App'
-          let s_result = require('./draw.js').s_result;
-          let d = s_result(78);
+          let cardinfo = require('./draw.js').info;
           (async ()=>{
             for(let i=0;i<78;i++){
-              let res = await fetch(d[i].path);
+              let res = await fetch(cardinfo(i).path);
             }
           })();
         }else{

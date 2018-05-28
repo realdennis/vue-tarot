@@ -45,6 +45,8 @@ function cardinfo(index){
 	}
 }
 
+exports.info = cardinfo;
+
 exports.daily = function(){
 	let index = Math.floor(Math.random()*78)
 	return cardinfo(index);
