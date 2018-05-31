@@ -10,7 +10,9 @@
     <p style="opacity:.3;font-size:10px">Tap Logo to change language if you want</p>
     <div class="start">
       <x-button link="start" class="button" :gradients="['#FF2719', '#FF61AD']">{{ $t("message.start") }}</x-button>
-      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">{{$t("message.draw")}}</x-button>
+      <x-button :link="{name:'result',params:{num:1}}" class="button" :gradients="['#FF2719', '#FF61AD']">{{$t("message.draw")}}</x-button>      
+
+      <x-button @click.native="install" v-show="beforeinstall" plain type="default" class="button">Offline</x-button>
     </div>
 
   </div>
@@ -25,13 +27,36 @@ export default {
   },
   data(){
     return{
-      msg:"Have fun!"
+      msg:"Have fun!",
+      beforeinstall:false,
+      deferredPrompt:null
     }
   },
   mounted(){
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+
+      this.beforeinstall = true;
+
+    });
     this.offline()
   },
   methods:{
+    install(){
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice
+      .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+    },
     changeLocale(){
       const list = ['zh-TW','zh-CN','en'];
       let nowLocale = this.$root.$i18n.locale;
