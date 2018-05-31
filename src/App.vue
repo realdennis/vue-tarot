@@ -1,6 +1,6 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-    <x-icon v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
+    <x-icon v-if="!isFirefox" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
 	 <router-view class="router"></router-view>
   </div>
 </template>
@@ -12,6 +12,9 @@ export default {
     pwa(){
       if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) return true;
       return false;
+    },
+    isFirefox(){
+      return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
     }
   },
   mounted(){
