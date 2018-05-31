@@ -38,14 +38,13 @@ export default {
       e.preventDefault();
       // Stash the event so it can be triggered later.
       this.deferredPrompt = e;
-
       this.beforeinstall = true;
-
     });
     this.offline()
   },
   methods:{
     install(){
+      this.beforeinstall = false;
       this.deferredPrompt.prompt();
       this.deferredPrompt.userChoice
       .then((choiceResult) => {
@@ -54,7 +53,7 @@ export default {
         } else {
           console.log('User dismissed the A2HS prompt');
         }
-        deferredPrompt = null;
+        this.deferredPrompt = null;
       });
     },
     changeLocale(){

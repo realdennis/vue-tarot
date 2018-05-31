@@ -19,10 +19,11 @@ export default {
   },
   mounted(){
 
+    /*
     window.addEventListener('appinstalled', (evt) => {
       app.logEvent('a2hs', 'installed');
     });
-    
+    */
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage; 
     //set i18n locale prevent fallback
 
