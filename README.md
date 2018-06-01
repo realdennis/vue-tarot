@@ -4,6 +4,12 @@ _Tarot Bot_
 
 基於Vue.js實作的塔羅牌App
 
+For Local use (by Electron)
+```
+$ npm start
+```
+
+
 ![移動端gif](https://thumbs.gfycat.com/SlipperyGlitteringIrishdraughthorse-size_restricted.gif)
 
 線上版的塔羅牌App，提供“每日運勢”、“無牌陣抽牌”。
