@@ -1,5 +1,7 @@
 # Tarobot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/realdennis/vue-tarot.svg)](https://greenkeeper.io/)
+
 _Tarot Bot_ 
 
 基於Vue.js實作的塔羅牌App
