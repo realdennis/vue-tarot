@@ -3,7 +3,7 @@
   	<div class="title">
       <h1>{{$t("message.disclaimer")}}</h1>
     </div>
-    <div class="cotents">
+    <div class="contents">
       <strong>{{$t("message.name")}}</strong>
       <p v-html="$t('message.moreDisclaimer')"></p>
     </div>
@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 
-.cotents{
+.contents{
   text-align: center;
   
   background-color: rgba(255,255,250,.4);
