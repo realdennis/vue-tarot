@@ -52,15 +52,6 @@ export default {
   },
   mounted() {
     this.initial();
-
-    if (innerWidth > innerHeight) {
-      document.getElementById('app').style.width = '100vw';
-    }
-  },
-  destroyed() {
-    if (innerWidth > innerHeight) {
-      document.getElementById('app').style.width = '50vw';
-    }
   },
   methods: {
     domshot(pure) {
