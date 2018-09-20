@@ -60,6 +60,18 @@
   flex-wrap: wrap;
   justify-content: center;
   .col {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+    color: black;
+    height:150px;
+    width: 200px;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin: 20px;
+    /*
     border: 1px solid rgba(5, 0, 0, 0.1);
     //color: black;;
     //border-radius: 10px;
@@ -74,6 +86,13 @@
     .menu-button {
       color: black;
       font-size: 20px;
+    }
+    */
+    @media (max-width: 768px) {
+      &{
+        height:auto;
+      }
+      
     }
   }
 }

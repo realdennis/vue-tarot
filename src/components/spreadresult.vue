@@ -7,8 +7,8 @@
     <div>
       <div v-if="draw">
         <h3>Screenshot</h3>
-        <x-button @click.native="domshot(false)" plain type="default" style="width:30%;display:inline-block;">Flat</x-button>
-        <x-button @click.native="domshot(true)" plain type="default" style="width:30%;display:inline-block">Stand</x-button>
+        <button @click.native="domshot(false)" style="width:30%;display:inline-block;">Flat</button>
+        <button @click.native="domshot(true)" style="width:30%;display:inline-block">Stand</button>
       </div>
     </div>
     <div class="card-set">
@@ -33,12 +33,9 @@
 </template>
 
 <script>
-import {} from 'vux';
 import html2canvas from 'html2canvas';
-
 let s_result = require('./draw.js').s_result;
 export default {
-  components: {},
   data() {
     return {
       msg: 'Choose One',
@@ -169,6 +166,17 @@ export default {
 </script>
 
 <style scoped>
+button {
+  background: none;
+  border: 1px solid black;
+  color: black;
+  width: 200px !important;
+  display:flex;
+  border-radius: 10px;
+  padding: 18px 40px;
+  font-size: 18px;
+  margin: 20px;
+}
 .card {
   margin: 10px 15px;
   display: inline-block;

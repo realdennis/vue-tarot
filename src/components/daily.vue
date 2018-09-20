@@ -48,8 +48,6 @@
 </template>
 
 <script>
-import {} from 'vux';
-
 import html2canvas from 'html2canvas';
 //import  {}  from './draw'
 let daily = require('./draw.js').daily;
@@ -166,6 +164,12 @@ export default {
 </script>
 
 <style scoped>
+.r-animation{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
 .result {
   background-color: rgba(255, 255, 250, 0.4);
   padding: 20px 15px;

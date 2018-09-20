@@ -71,8 +71,7 @@ body {
 }
 
 .title {
-  padding-top: 30px;
-  margin-bottom: 50px;
+  margin:30px;
 }
 
 img {
@@ -84,5 +83,14 @@ img {
 
 .choose {
   padding: 10px;
+}
+a {
+  color: #033965;
+}
+a:visited {
+  color: rgba(3, 57, 101, 0.5);
+}
+a:hover {
+  color: rgba(33, 133, 201, 0.5);
 }
 </style>

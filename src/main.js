@@ -16,7 +16,7 @@ import SpreadResult from '@/components/spreadresult';
 
 import Storage from 'vue-ls';
 
-import { XButton, Divider, Flexbox, FlexboxItem } from 'vux';
+import { Flexbox, FlexboxItem } from 'vux';
 require('vue2-animate/dist/vue2-animate.min.css');
 
 import VueI18n from 'vue-i18n';
@@ -26,8 +26,6 @@ import langTw from '@/assets/lang/tw';
 import langCn from '@/assets/lang/cn';
 import langEn from '@/assets/lang/en';
 
-Vue.component('XButton', XButton);
-Vue.component('divider', Divider);
 Vue.component('flexbox', Flexbox);
 Vue.component('flexbox-item', FlexboxItem);
 

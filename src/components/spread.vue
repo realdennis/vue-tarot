@@ -6,10 +6,11 @@
 
     <div class="choose">
       <p>{{$t("message.spreadChoose")}}</p>
-      <x-button plain type="default" class="button" :link="{name:'result',params:{num:1}}">1</x-button>
-      <x-button plain type="default" class="button" :link="{name:'result',params:{num:3}}">3</x-button>
-      <x-button plain type="default" class="button" :link="{name:'result',params:{num:5}}">5</x-button>
-
+      <div class="link">
+        <router-link :to="{name:'result',params:{num:1}}" class="button">1</router-link>
+        <router-link :to="{name:'result',params:{num:3}}" class="button">3</router-link>
+        <router-link :to="{name:'result',params:{num:5}}" class="button">5</router-link>
+      </div>
     </div>
 
   </div>
@@ -19,5 +20,20 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  .button {
+    border: 1px solid black;
+    color: black;
+    width: 250px;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin: 20px;
+  }
+}
 </style>

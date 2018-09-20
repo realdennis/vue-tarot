@@ -18,11 +18,10 @@
 </template>
 
 <script>
-import { XButton, Divider } from 'vux';
+import { Divider } from 'vux';
 
 export default {
   components: {
-    XButton,
     Divider
   },
   data() {
