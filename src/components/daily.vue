@@ -173,10 +173,6 @@ export default {
   margin:10px;
   border-radius:10px;
 }
-
-.result-img{
-}
-
 .draw-time{
   margin-top:30px;
 }

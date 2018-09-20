@@ -105,7 +105,7 @@ export default {
 
         cardSet.style.borderRadius = "10px";
 
-      html2canvas(cardSet).then(canvas=>{
+      html2canvas(cardSet,{logging:false}).then(canvas=>{
         cardSet.style.width = '';
         cardSet.style.height= '';
         cardSet.style.borderRadius = '';
