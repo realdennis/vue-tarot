@@ -1,6 +1,6 @@
 <template>
   <div class="disclaim">
-  	<div class="title">
+    <div class="title">
       <h1>{{$t("message.disclaimer")}}</h1>
     </div>
     <div class="contents">
@@ -11,22 +11,18 @@
 </template>
 
 <script>
-
-export default {
-}
+export default {};
 </script>
 
 <style scoped>
-
-.contents{
+.contents {
   text-align: center;
-  
-  background-color: rgba(255,255,250,.4);
-  border:solid rgba(0,0,0,.7) 1px;
-  border-radius:10px;
 
-  padding:30px;
-  margin:20px;
+  background-color: rgba(255, 255, 250, 0.4);
+  border: solid rgba(0, 0, 0, 0.7) 1px;
+  border-radius: 10px;
+
+  padding: 30px;
+  margin: 20px;
 }
-
 </style>

@@ -6,17 +6,17 @@
     <div class="choose">
       <div class="row">
         <router-link to="daily" class="col">
-          <p  class="menu-button">{{$t("message.daily")}}</p>
+          <p class="menu-button">{{$t("message.daily")}}</p>
         </router-link>
         <router-link to="spread" class="col">
-          <p  class="menu-button">{{$t("message.spread")}}</p>
+          <p class="menu-button">{{$t("message.spread")}}</p>
         </router-link>
       </div>
       <div class="row">
         <router-link to="about" class="col">
           <p class="menu-button">{{$t("message.about")}}</p>
         </router-link>
-        <router-link to="disclaimer"  class="col">
+        <router-link to="disclaimer" class="col">
           <p class="menu-button">{{$t("message.disclaimer")}}</p>
         </router-link>
       </div>
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
 </script>
 
 <style scoped lang="scss">
@@ -69,12 +68,12 @@
     //font-size: 20px;
     margin: 5px;
     background-color: rgb(249, 237, 233);
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    .menu-button{
-      color:black;
-      font-size:20px;
+    .menu-button {
+      color: black;
+      font-size: 20px;
     }
   }
 }
