@@ -8,23 +8,22 @@
       <div v-if="draw" class="r-animation" style="animation-duration: 2s">
         <div class="result">
           <div class="flex-result" style="padding:5px;">
-            <flexbox style="position:relative;">
-              <img class="result-img" :src="path" :style="style">
-              <flexbox-item>
-                <div class="profile"></div>
-                <div class="text">
+            <div style="display:flex;">
+              <img class="result-img" style="height:260px;flex-shrink:0;" :src="path" :style="style">
+              <div style="display:flex;flex-direction:column;justify-content:space-between; margin:0 20px;">
+                <div style="height:100%;display:flex;flex-direction:column;justify-content:center;">
                   <i class="card-mean"> {{ mean }}</i>
-
-                  <div style="position:absolute;bottom:0;">
-                    <a :href="google+cardName" target="_blank">
-
-                      <h6 class="card-name"> {{flagName}}</h6>
-                      <h4 class="card-name"> {{cardName}}</h4>
-                    </a>
-                  </div>
                 </div>
-              </flexbox-item>
-            </flexbox>
+
+                <div>
+                  <a :href="google+cardName" target="_blank">
+
+                    <h6 class="card-name"> {{flagName}}</h6>
+                    <h4 class="card-name"> {{cardName}}</h4>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
@@ -164,13 +163,13 @@ export default {
 </script>
 
 <style scoped>
-.r-animation{
-  display:flex;
+.r-animation {
+  display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .result {
+  max-width:100%;
   background-color: rgba(255, 255, 250, 0.4);
   padding: 20px 15px;
   color: black;

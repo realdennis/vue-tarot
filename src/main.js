@@ -16,7 +16,6 @@ import SpreadResult from '@/components/spreadresult';
 
 import Storage from 'vue-ls';
 
-import { Flexbox, FlexboxItem } from 'vux';
 require('vue2-animate/dist/vue2-animate.min.css');
 
 import VueI18n from 'vue-i18n';
@@ -25,9 +24,6 @@ Vue.use(VueI18n);
 import langTw from '@/assets/lang/tw';
 import langCn from '@/assets/lang/cn';
 import langEn from '@/assets/lang/en';
-
-Vue.component('flexbox', Flexbox);
-Vue.component('flexbox-item', FlexboxItem);
 
 Vue.use(Storage);
 Vue.use(VueRouter);

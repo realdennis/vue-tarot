@@ -77,10 +77,6 @@ body {
 img {
   width: 150px;
 }
-.result-img {
-  height: 260px;
-}
-
 .choose {
   padding: 10px;
 }
