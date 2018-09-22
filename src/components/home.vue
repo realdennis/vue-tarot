@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <div class="home-title">
       <img @click="changeLocale" class="logo" src="../assets/logo.jpg" alt="Logo">
       <h1 style="font-size:20px; margin:3px;">

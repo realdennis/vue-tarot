@@ -47,6 +47,7 @@ export default {
 #app {
   text-align: center;
   margin: 0px auto;
+  height:100vh;
 }
 .router{
   margin: 0px 10px;
