@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="about">
     <div class="title">
       <h1>關於我們</h1>
     </div>
@@ -21,6 +21,11 @@ export default {};
 </script>
 
 <style scoped>
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .jojo {
   width: 220px;
 }
@@ -29,7 +34,6 @@ export default {};
   text-align: center;
   padding: 30px;
   border: solid black 1.5px;
-  margin: 10px;
   border-radius: 10px;
 }
 </style>

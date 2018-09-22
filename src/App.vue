@@ -48,6 +48,9 @@ export default {
   text-align: center;
   margin: 0px auto;
 }
+.router{
+  margin: 0px 10px;
+}
 * {
   box-sizing: border-box;
   text-shadow: rgba(255, 255, 250, 0.4) 0.02em 0.05em 0.3em;

@@ -11,8 +11,8 @@
         <button @click.native="domshot(true)" style="width:30%;display:inline-block">Stand</button>
       </div>
     </div>
-    <div class="card-set">
-      <transition-group name="bounce" tag="div">
+    <div>
+      <transition-group name="bounce" class="card-set" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
           <h3 style="opacity: .8">{{c.flagName}}</h3>
           <img class="card-img result-img" :src="c.path" :style="c.style">
@@ -162,24 +162,27 @@ button {
   border: 1px solid black;
   color: black;
   width: 200px !important;
-  display:flex;
+  display: flex;
   border-radius: 10px;
   padding: 18px 40px;
   font-size: 18px;
   margin: 20px;
 }
+.card-set {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .card {
   margin: 10px 15px;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 200px;
+  padding: 5px 10px;
   height: 350px;
-  padding-top: 10px;
-  vertical-align: middle;
-
   background-color: rgba(255, 255, 255, 0.6);
-
   border-radius: 10px;
   border: 1px rgba(0, 0, 0, 0.7) solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 </style>
