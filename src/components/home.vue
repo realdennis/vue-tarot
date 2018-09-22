@@ -2,8 +2,10 @@
   <div>
     <div class="home-title">
       <img @click="changeLocale" class="logo" src="../assets/logo.jpg" alt="Logo">
-      <h1> Tarobot </h1>
-      <p>{{$t("message.name")}}</p>
+      <h1 style="font-size:20px; margin:3px;">
+        <p>Tarobot</p>
+        <p>{{$t("message.name")}}</p>
+      </h1>
     </div>
     <divider>{{ msg }}</divider>
 

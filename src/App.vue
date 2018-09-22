@@ -43,8 +43,7 @@ export default {
 };
 </script>
 
-<style lang="less">
-@import '~vux/src/styles/reset.less';
+<style lang="scss">
 #app {
   text-align: center;
   margin: 0px auto;
@@ -58,8 +57,6 @@ export default {
 
 body {
   background-color: rgba(230, 180, 173, 0.4);
-
-  box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -71,6 +68,7 @@ body {
 }
 
 .title {
+  font-size:30px;
   margin:30px;
 }
 
@@ -82,6 +80,7 @@ img {
 }
 a {
   color: #033965;
+  text-decoration: none;
 }
 a:visited {
   color: rgba(3, 57, 101, 0.5);
