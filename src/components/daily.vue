@@ -35,7 +35,9 @@
 
       <h3>{{$t("message.moreDaily")}}</h3>
       <p>{{$t("message.meditation")}}</p>
-      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
+
+      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
+      <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>-->
     </div>
 
   </div>
@@ -157,6 +159,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.draw-button{
+  font-size:100px;
+  margin:10px;
+}
 .daily {
   .choose-button {
     flex: 1;

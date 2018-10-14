@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss">
 #app {
-  margin: 0px auto;
+  width:100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -45,10 +45,13 @@ main {
   flex: 1;
   padding-top: 50px;
   padding-bottom: 50px;
+  height:100%;
   .router {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 

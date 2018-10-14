@@ -19,6 +19,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.choose{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .link {
   display: flex;
   flex-wrap: wrap;

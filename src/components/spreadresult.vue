@@ -24,7 +24,10 @@
     <div class="choose-button" id="enter" v-if="!draw">
       <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
       <p>{{$t("message.meditation")}}</p>
-      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
+
+      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
+
+      <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon> -->
     </div>
 
   </div>
@@ -155,6 +158,17 @@ export default {
 </script>
 
 <style scoped>
+.draw-button{
+  font-size:100px;
+  margin:10px;
+}
+.choose-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 button {
   background: none;
   border: 1px solid black;

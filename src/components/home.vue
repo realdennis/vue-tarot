@@ -7,8 +7,6 @@
         <p>{{$t("message.name")}}</p>
       </h1>
     </div>
-    <divider>{{ msg }}</divider>
-
     <p style="opacity:.3;font-size:10px">Tap Logo to change language if you want</p>
     <div class="start">
       <router-link to="start" class="button">{{ $t("message.start") }}</router-link>
@@ -20,12 +18,7 @@
 </template>
 
 <script>
-import { Divider } from 'vux';
-
 export default {
-  components: {
-    Divider
-  },
   data() {
     return {
       msg: 'Have fun!',

@@ -77,6 +77,20 @@ const router = new VueRouter({
 
 Vue.config.productionTip = false;
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {  faDotCircle } from '@fortawesome/free-regular-svg-icons';
+import {  faHome } from '@fortawesome/free-solid-svg-icons';
+import {  faHandLizard } from '@fortawesome/free-solid-svg-icons';
+import {  faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faDotCircle);
+library.add(faHome);
+library.add(faHandLizard);
+library.add(faInfoCircle);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 /* eslint-disable no-new */
 new Vue({
   router,
