@@ -17,12 +17,6 @@
         <router-link to="/about" class="col">
           <p class="menu-button">{{$t("message.about")}}</p>
         </router-link>
-
-      </li>
-      <li>
-        <router-link to="/disclaimer" class="col">
-          <p class="menu-button">{{$t("message.disclaimer")}}</p>
-        </router-link>
       </li>
     </ul>
   </nav>

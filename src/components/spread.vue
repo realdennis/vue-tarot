@@ -25,13 +25,21 @@ export default {};
   justify-content: center;
   margin: 10px;
   .button {
-    border: 1px solid black;
-    color: black;
+    background-color: rgba(10,10,10,.8);
+    color:white;
+    &:hover{
+      opacity:.3;
+    }
     width: 250px;
     border-radius: 10px;
     padding: 20px 40px;
     font-size: 20px;
     margin: 20px;
+    @media (max-width:900px){
+      &{
+        width:100%;
+      }
+    }
   }
 }
 </style>

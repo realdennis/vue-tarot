@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @click.right="e=>{e.preventDefault()}">
+  <div id="app" @click.right="e=>e.preventDefault()">
     <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
     <main>
       <router-view class="router"></router-view>
@@ -36,9 +36,8 @@ export default {
 
 <style lang="scss">
 #app {
-  text-align: center;
   margin: 0px auto;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -46,7 +45,6 @@ main {
   flex: 1;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: rgb(240, 240, 240);
   .router {
     height: 100%;
     display: flex;
@@ -83,6 +81,8 @@ html {
   width: 100%;
 }
 body {
+  overscroll-behavior-y: none;
+  background-color: rgb(245, 245, 250);
   height: 100%;
   width: 100%;
   user-select: none;

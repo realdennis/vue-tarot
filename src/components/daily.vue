@@ -4,6 +4,9 @@
 
     <transition name="zoom">
       <div v-if="draw" class="r-animation" style="animation-duration: 2s">
+        <div class="draw-time">
+          <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
+        </div>
         <div class="result">
           <div class="flex-result" style="padding:5px;">
             <div style="display:flex;">
@@ -25,10 +28,6 @@
           </div>
         </div>
         <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
-        <div class="draw-time">
-          <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
-          <br>
-        </div>
       </div>
     </transition>
 
@@ -172,7 +171,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex:1;
+  flex: 1;
 }
 .result {
   background-color: white;
@@ -181,7 +180,7 @@ export default {
   border-radius: 10px;
 }
 .draw-time {
-  margin-top: 30px;
+  margin-bottom: 15px;
   font-style: italic;
 }
 
