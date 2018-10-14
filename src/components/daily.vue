@@ -1,15 +1,13 @@
 <template>
   <div class="daily">
-    <div class="title">
-      <h1>{{$t("message.daily")}}</h1>
-    </div>
+    <h1 class="title">{{$t("message.daily")}}</h1>
 
     <transition name="zoom">
       <div v-if="draw" class="r-animation" style="animation-duration: 2s">
         <div class="result">
           <div class="flex-result" style="padding:5px;">
             <div style="display:flex;">
-              <img class="result-img" style="height:260px;flex-shrink:0;" :src="path" :style="style">
+              <img class="tarot" style="flex-shrink:0;" :src="path" :style="style">
               <div style="display:flex;flex-direction:column;justify-content:space-between; margin:0 20px;">
                 <div style="height:100%;display:flex;flex-direction:column;justify-content:center;">
                   <i class="card-mean"> {{ mean }}</i>
@@ -34,13 +32,11 @@
       </div>
     </transition>
 
-    <div class="choose-button">
-      <div id="enter" v-if="!draw">
+    <div class="choose-button" v-if="!draw">
 
-        <h3>{{$t("message.moreDaily")}}</h3>
-        <p>{{$t("message.meditation")}}</p>
-        <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
-      </div>
+      <h3>{{$t("message.moreDaily")}}</h3>
+      <p>{{$t("message.meditation")}}</p>
+      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>
     </div>
 
   </div>
@@ -48,7 +44,6 @@
 
 <script>
 import html2canvas from 'html2canvas';
-//import  {}  from './draw'
 let daily = require('./draw.js').daily;
 
 export default {
@@ -162,25 +157,32 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.daily {
+  .choose-button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .r-animation {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex:1;
 }
 .result {
-  max-width:100%;
-  background-color: rgba(255, 255, 250, 0.4);
+  background-color: white;
   padding: 20px 15px;
   color: black;
-  border: solid black;
-  border-width: 1px;
-
-  margin: 10px;
   border-radius: 10px;
 }
 .draw-time {
   margin-top: 30px;
+  font-style: italic;
 }
 
 .choose {

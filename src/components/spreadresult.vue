@@ -1,8 +1,6 @@
 <template>
   <div id="result">
-    <div class="title">
-      <h1>{{$t("message.spread")}}</h1>
-    </div>
+    <h1 class="title">{{$t("message.spread")}}</h1>
 
     <div>
       <div v-if="draw">
@@ -15,7 +13,7 @@
       <transition-group name="bounce" class="card-set" tag="div">
         <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
           <h3 style="opacity: .8">{{c.flagName}}</h3>
-          <img class="card-img result-img" :src="c.path" :style="c.style">
+          <img class="tarot card-img result-img" :src="c.path" :style="c.style">
           <a :href="google+c.cardName" target="_blank">
             <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
           </a>

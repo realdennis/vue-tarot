@@ -1,8 +1,6 @@
 <template>
   <div class="spread">
-    <div class="title">
-      <h1>{{$t("message.spread")}}</h1>
-    </div>
+    <h1 class="title">{{$t("message.spread")}}</h1>
 
     <div class="choose">
       <p>{{$t("message.spreadChoose")}}</p>

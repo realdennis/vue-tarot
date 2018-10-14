@@ -1,14 +1,22 @@
 <template>
   <div id="app" @click.right="e=>{e.preventDefault()}">
-    <x-icon v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></x-icon>
-    <router-view class="router"></router-view>
+    <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
+    <main>
+      <router-view class="router"></router-view>
+    </main>
+    <footer>
+      <footer-navigator />
+    </footer>
   </div>
 </template>
 
 <script>
+import footerNavigator from '@/components/footerNavigator';
 export default {
   name: 'app',
+  components: { footerNavigator },
   computed: {
+    /*
     pwa() {
       if (
         window.matchMedia('(display-mode: standalone)').matches ||
@@ -17,29 +25,12 @@ export default {
         return true;
       return false;
     }
+    */
   },
-  created() {},
   mounted() {
-    /*
-    window.addEventListener('appinstalled', (evt) => {
-      app.logEvent('a2hs', 'installed');
-    });
-    */
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage;
-    //set i18n locale prevent fallback
-    /*
-    if(innerWidth>innerHeight){
-      //console.log('computer')
-      document.getElementById('app').style.width="50vw";
-    }
-    */
   },
-  methods: {
-    goBack() {
-      if (this.$route.path === '/') return;
-      history.go(-1);
-    }
-  }
+  methods: {}
 };
 </script>
 
@@ -47,40 +38,63 @@ export default {
 #app {
   text-align: center;
   margin: 0px auto;
-  height:100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.router{
-  margin: 0px 10px;
-}
-* {
-  box-sizing: border-box;
-  text-shadow: rgba(255, 255, 250, 0.4) 0.02em 0.05em 0.3em;
-  font-family: Monaco, Helvetica, monospace, 'Lucida Console', 'Comic Sans MS',
-    sans-serif;
+main {
+  flex: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgb(240, 240, 240);
+  .router {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+h1.title {
+  height: 40px;
+  font-size: 20px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  top: env(safe-area-inset-top);
+  z-index: 1000;
+  background-color: #fff;
+}
+
+footer {
+  background-color: #fff;
+  position: fixed;
+  height: 40px;
+  bottom: 0;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
-  background-color: rgba(230, 180, 173, 0.4);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
+  height: 100%;
+  width: 100%;
   user-select: none;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.title {
-  font-size:30px;
-  margin:30px;
+* {
+  box-sizing: border-box;
 }
 
-img {
-  width: 150px;
-}
-.choose {
-  padding: 10px;
+img.tarot {
+  height: 260px;
 }
 a {
   color: #033965;

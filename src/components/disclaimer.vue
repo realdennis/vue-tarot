@@ -1,11 +1,11 @@
 <template>
   <div class="disclaim">
-    <div class="title">
-      <h1>{{$t("message.disclaimer")}}</h1>
-    </div>
+    <h1 class="title">{{$t("message.disclaimer")}}</h1>
     <div class="contents">
-      <strong>{{$t("message.name")}}</strong>
-      <p v-html="$t('message.moreDisclaimer')"></p>
+      <div class="wrapper">
+        <strong>{{$t("message.name")}}</strong>
+        <p v-html="$t('message.moreDisclaimer')"></p>
+      </div>
     </div>
   </div>
 </template>
@@ -14,15 +14,17 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .contents {
-  text-align: center;
-
-  background-color: rgba(255, 255, 250, 0.4);
-  border: solid rgba(0, 0, 0, 0.7) 1px;
-  border-radius: 10px;
-
-  padding: 30px;
-  margin: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .wrapper{
+    background-color:white;
+    padding:10px;
+    border-radius: 10px;
+  }
 }
 </style>
