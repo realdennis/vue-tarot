@@ -82,14 +82,19 @@ import {  faDotCircle } from '@fortawesome/free-regular-svg-icons';
 import {  faHome } from '@fortawesome/free-solid-svg-icons';
 import {  faHandLizard } from '@fortawesome/free-solid-svg-icons';
 import {  faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import {  faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faDotCircle);
 library.add(faHome);
 library.add(faHandLizard);
 library.add(faInfoCircle);
+library.add(faAngleUp);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 /* eslint-disable no-new */
 new Vue({

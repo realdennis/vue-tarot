@@ -2,33 +2,45 @@
   <div id="result">
     <h1 class="title">{{$t("message.spread")}}</h1>
 
-    <div>
+    <!--
+    <div style="text-align: center">
       <div v-if="draw">
         <h3>Screenshot</h3>
-        <button @click.native="domshot(false)" style="width:30%;display:inline-block;">Flat</button>
-        <button @click.native="domshot(true)" style="width:30%;display:inline-block">Stand</button>
+        <div class="button-wrapper" style="display:flex;justify-content:center;align-items:center; flex-wrap:wrap;">
+          <button @click.native="domshot(false)">Flat</button>
+          <button @click.native="domshot(true)" >Stand</button>
+
+        </div>
       </div>
     </div>
-    <div>
-      <transition-group name="bounce" class="card-set" tag="div">
-        <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
-          <h3 style="opacity: .8">{{c.flagName}}</h3>
-          <img class="tarot card-img result-img" :src="c.path" :style="c.style">
-          <a :href="google+c.cardName" target="_blank">
-            <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
-          </a>
-        </div>
-      </transition-group>
-    </div>
+    -->
 
     <div class="choose-button" id="enter" v-if="!draw">
+
+      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
       <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
       <p>{{$t("message.meditation")}}</p>
 
-      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
-
       <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon> -->
     </div>
+
+      <div>
+        <transition-group name="bounce" class="card-set" tag="div">
+          <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
+
+            <img class="tarot card-img result-img" :src="c.path" :style="c.style">
+            <a :href="google+c.cardName" target="_blank" style="text-align:center; display:flex">
+              <!--
+            <h3 style="opacity: .8">{{c.flagName}}</h3>
+            <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
+            -->
+              <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
+            </a>
+          </div>
+        </transition-group>
+      </div>
+      <font-awesome-icon @click="upMethods" v-if="draw" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;" class="font-awesome" :icon="['fas','angle-up']" />
+
 
   </div>
 </template>
@@ -55,6 +67,9 @@ export default {
     this.initial();
   },
   methods: {
+    upMethods(){
+      window.scroll({top:0,behavior:'smooth'})
+    },
     domshot(pure) {
       let imageWidth,
         imageHeight = 370;
@@ -157,10 +172,11 @@ export default {
 };
 </script>
 
-<style scoped>
-.draw-button{
-  font-size:100px;
-  margin:10px;
+<style lang="scss" scoped>
+.draw-button {
+  font-size: 100px;
+  margin: 10px;
+  cursor:pointer;
 }
 .choose-button {
   flex: 1;
@@ -173,28 +189,44 @@ button {
   background: none;
   border: 1px solid black;
   color: black;
-  width: 200px !important;
+  width: 50vw;
+  margin: 10px;
   display: flex;
   border-radius: 10px;
   padding: 18px 40px;
   font-size: 18px;
-  margin: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .card-set {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .card {
+  max-width: 100%;
+  min-width: 20%;
+  @media (max-width: 400px) {
+    min-width: 100%;
+  }
   margin: 10px 15px;
   padding: 5px 10px;
-  height: 350px;
-  background-color: rgba(255, 255, 255, 0.6);
+  //background-color: white;
   border-radius: 10px;
-  border: 1px rgba(0, 0, 0, 0.7) solid;
+  //border: 1px rgba(0, 0, 0, 0.7) solid;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  img {
+    max-width: 75%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+.card-name {
+  font-style: italic;
+  font-size: 1.4em;
+  margin-top: 10px;
 }
 </style>

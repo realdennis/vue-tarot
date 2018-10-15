@@ -17,6 +17,7 @@
     "html2canvas": "^1.0.0-alpha.12",
     "i": "^0.3.6",
     "reset-css": "^4.0.1",
+    "smoothscroll-polyfill": "^0.4.3",
     "vue": "^2.5.2",
     "vue-i18n": "^7.7.0",
     "vue-ls": "^3.0.5",

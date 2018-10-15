@@ -1,12 +1,12 @@
 <template>
   <div class="about">
-    <h1 class="title">關於我們</h1>
+    <h1 class="title">  {{$t('message.about')}}</h1>
 
     <div class="contents">
 
       <div class="profile">
-        <img src="../assets/logo.jpg" alt="logo" />
-        <h2>塔羅機器人</h2>
+        <img @click="changeLocale" src="../assets/logo.jpg" alt="logo" />
+        <h2>  {{$t('message.name')}}</h2>
       </div>
       <ul class="info">
         <li>
@@ -44,7 +44,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    changeLocale() {
+      const list = ['zh-TW', 'zh-CN', 'en'];
+      let nowLocale = this.$root.$i18n.locale;
+
+      let nowIndex = list.indexOf(nowLocale);
+      let newIndex = (nowIndex + 1) % 3;
+
+      this.$root.$i18n.locale = list[newIndex];
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -53,9 +65,11 @@ export default {};
 }
 .contents {
   height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: inherit;
 
   .profile {
     width: 100%;
@@ -89,8 +103,8 @@ export default {};
       align-items: center;
       span.first {
         font-size: 1.2em;
-        width:60px;
-        margin-right:10px;
+        width: 60px;
+        margin-right: 10px;
         max-width: 80px;
         text-align: center;
         opacity: 0.6;
@@ -100,16 +114,18 @@ export default {};
         font-size: 1em;
         width: 100%;
       }
-      span.disclaim{
-        font-size:1em;
+      span.disclaim {
+        font-size: 1em;
       }
     }
   }
+  /*
   .wrapper {
     background-color: white;
     width: 100%;
     padding: 10px;
     border-radius: 10px;
   }
+  */
 }
 </style>

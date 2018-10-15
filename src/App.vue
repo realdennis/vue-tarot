@@ -36,18 +36,21 @@ export default {
 
 <style lang="scss">
 #app {
-  width:100%;
+  width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 main {
+  min-height: inherit;
   flex: 1;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  height:100%;
+  padding:40px 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   .router {
-    height: 100%;
+    flex: 1;
+    min-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,6 +69,7 @@ h1.title {
   top: env(safe-area-inset-top);
   z-index: 1000;
   background-color: #fff;
+  box-shadow: 1px 1px 1px gainsboro;
 }
 
 footer {
@@ -77,13 +81,17 @@ footer {
   left: 0;
   right: 0;
   z-index: 1000;
+  box-shadow: 1px -1px 1px gainsboro;
 }
 
 html {
   height: 100%;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
+
+-webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
   background-color: rgb(245, 245, 250);
   height: 100%;

@@ -2,21 +2,21 @@
   <nav class="nav">
     <ul>
       <li>
-        <router-link to="/" exact class="col">
+        <router-link to="/" exact class="r-link">
           <!--<p class="menu-button">{{$t("message.daily")}}</p>-->
           <font-awesome-icon class="font-awesome" :icon="['fas','home']" />
         </router-link>
 
       </li>
       <li>
-        <router-link to="/spread" class="col">
+        <router-link to="/spread" class="r-link">
           <!--<p class="menu-button">{{$t("message.spread")}}</p>-->
           <font-awesome-icon class="font-awesome" :icon="['fas','hand-lizard']" />
         </router-link>
 
       </li>
       <li>
-        <router-link to="/about" class="col">
+        <router-link to="/about" class="r-link">
           <!--<p class="menu-button">{{$t("message.about")}}</p>-->
           <font-awesome-icon class="font-awesome" :icon="['fas','info-circle']" />
         </router-link>
@@ -39,7 +39,7 @@ nav.nav {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      a{
+      .r-link{
         width:100%;
         height:100%;
         display:flex;

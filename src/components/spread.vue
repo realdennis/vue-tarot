@@ -3,12 +3,13 @@
     <h1 class="title">{{$t("message.spread")}}</h1>
 
     <div class="choose">
-      <p>{{$t("message.spreadChoose")}}</p>
       <div class="link">
         <router-link :to="{name:'result',params:{num:1}}" class="button">1</router-link>
         <router-link :to="{name:'result',params:{num:3}}" class="button">3</router-link>
         <router-link :to="{name:'result',params:{num:5}}" class="button">5</router-link>
       </div>
+
+      <p>{{$t("message.spreadChoose")}}</p>
     </div>
 
   </div>
@@ -20,6 +21,7 @@ export default {};
 
 <style lang="scss" scoped>
 .choose{
+  flex:1;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +33,7 @@ export default {};
   justify-content: center;
   margin: 10px;
   .button {
+    text-align: center;
     background-color: rgba(10,10,10,.8);
     color:white;
     &:hover{

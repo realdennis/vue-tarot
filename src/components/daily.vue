@@ -4,14 +4,11 @@
 
     <transition name="zoom">
       <div v-if="draw" class="r-animation" style="animation-duration: 2s">
-        <div class="draw-time">
-          <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
-        </div>
         <div class="result">
           <div class="flex-result" style="padding:5px;">
             <div style="display:flex;">
               <img class="tarot" style="flex-shrink:0;" :src="path" :style="style">
-              <div style="display:flex;flex-direction:column;justify-content:space-between; margin:0 20px;">
+              <div style="display:flex;flex-direction:column;justify-content:space-between; margin:10px 20px;">
                 <div style="height:100%;display:flex;flex-direction:column;justify-content:center;">
                   <i class="card-mean"> {{ mean }}</i>
                 </div>
@@ -27,17 +24,20 @@
             </div>
           </div>
         </div>
+        <div class="draw-time">
+          <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
+        </div>
         <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
       </div>
     </transition>
 
     <div class="choose-button" v-if="!draw">
 
+      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
+      <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>-->
       <h3>{{$t("message.moreDaily")}}</h3>
       <p>{{$t("message.meditation")}}</p>
 
-      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
-      <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>-->
     </div>
 
   </div>
@@ -159,9 +159,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.draw-button{
-  font-size:100px;
-  margin:10px;
+.draw-button {
+  font-size: 100px;
+  margin: 10px;
+  cursor: pointer;
 }
 .daily {
   .choose-button {
@@ -186,7 +187,7 @@ export default {
   border-radius: 10px;
 }
 .draw-time {
-  margin-bottom: 15px;
+  margin: 15px;
   font-style: italic;
 }
 
