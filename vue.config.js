@@ -1,4 +1,7 @@
 module.exports = {
   baseUrl: '',
-  outputDir: 'docs'
+  outputDir: 'docs',
+  pwa: {
+    appleMobileWebAppCapable: 'yes'
+  },
 }

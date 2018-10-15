@@ -46,7 +46,7 @@
 
 <script>
 //import html2canvas from 'html2canvas';
-let s_result = require('./draw.js').s_result;
+import { s_result } from './draw.js';
 export default {
   data() {
     return {
@@ -199,6 +199,7 @@ button {
   align-items: center;
 }
 .card-set {
+  width:100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -207,9 +208,6 @@ button {
 .card {
   max-width: 100%;
   min-width: 20%;
-  @media (max-width: 400px) {
-    min-width: 100%;
-  }
   margin: 10px 15px;
   padding: 5px 10px;
   //background-color: white;
@@ -219,7 +217,7 @@ button {
   flex-direction: column;
   align-items: center;
   img {
-    max-width: 75%;
+    max-width: 80%;
     height: auto;
     object-fit: contain;
   }

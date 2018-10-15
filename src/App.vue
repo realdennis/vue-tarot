@@ -47,7 +47,7 @@ export default {
 main {
   min-height: inherit;
   flex: 1;
-  padding: 40px 0;
+  padding: 45px 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -73,9 +73,10 @@ h1.title {
   top: env(safe-area-inset-top);
   z-index: 1000;
   background-color: #fff;
+  text-align: center;
   box-shadow: 1px 1px 1px gainsboro;
-  background-color: rgb(45, 53, 73);
-  color: rgb(244, 244, 244);
+  //background-color: rgb(45, 53, 73);
+  //color: rgb(244, 244, 244);
 }
 
 footer {

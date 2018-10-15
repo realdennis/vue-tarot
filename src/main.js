@@ -74,6 +74,7 @@ library.add(faFacebookSquare);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 import smoothscroll from 'smoothscroll-polyfill';
+import './registerServiceWorker'
 smoothscroll.polyfill();
 
 
