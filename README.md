@@ -4,7 +4,6 @@ _Tarot Bot_
 
 基於Vue.js實作的塔羅牌App
 
-For Local use (by Electron)
 ```
 $ npm start
 ```
@@ -36,6 +35,5 @@ $ npm start
 
 ## 技術棧
 - 透過Localstorage實作抽牌時間計算
-- 採用Vux UI 
 - 手機、豎屏 用戶優先
 - service worker -> progressive web application
