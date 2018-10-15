@@ -36,6 +36,9 @@ export default {
 
 <style lang="scss">
 #app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -44,12 +47,12 @@ export default {
 main {
   min-height: inherit;
   flex: 1;
-  padding:40px 0;
+  padding: 40px 0;
   height: 100%;
   display: flex;
   flex-direction: column;
   .router {
-    max-width:100%;
+    max-width: 100%;
     flex: 1;
     min-height: inherit;
     display: flex;
@@ -71,8 +74,8 @@ h1.title {
   z-index: 1000;
   background-color: #fff;
   box-shadow: 1px 1px 1px gainsboro;
-  background-color:rgb(45,53,73);
-  color:rgb(244,244,244);
+  background-color: rgb(45, 53, 73);
+  color: rgb(244, 244, 244);
 }
 
 footer {
@@ -93,8 +96,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 body {
-
--webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
   background-color: rgb(245, 245, 250);
   height: 100%;

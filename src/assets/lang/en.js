@@ -15,7 +15,7 @@ module.exports={
     disclaimer:'Disclaimer',
     main:'Main menu',
     moreDisclaimer:'All image and texts are from publicly quoted sources provided at home and abroad. All copyrights are owned by the original author and its website.\
-       If the original author disagrees with the attribution of the copyright of this site\'s copyright, please inform immediately.\
-       Its divination content is for reference only, this site does not bear any subsequent responsibility.'
+If the original author disagrees with the attribution of the copyright of this site\'s copyright, please inform immediately.\
+Its divination content is for reference only, this site does not bear any subsequent responsibility.'
   }
 }

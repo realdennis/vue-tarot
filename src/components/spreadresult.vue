@@ -24,29 +24,28 @@
       <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon> -->
     </div>
 
-      <div>
-        <transition-group name="bounce" class="card-set" tag="div">
-          <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
+    <div>
+      <transition-group name="bounce" class="card-set" tag="div">
+        <div v-for="(c,key) in each" class="card" :key="key" style="animation-duration: 2s; ">
 
-            <img class="tarot card-img result-img" :src="c.path" :style="c.style">
-            <a :href="google+c.cardName" target="_blank" style="text-align:center; display:flex">
-              <!--
+          <img class="tarot card-img result-img" :src="c.path" :style="c.style">
+          <a :href="google+c.cardName" target="_blank" style="text-align:center; display:flex">
+            <!--
             <h3 style="opacity: .8">{{c.flagName}}</h3>
             <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
             -->
-              <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
-            </a>
-          </div>
-        </transition-group>
-      </div>
-      <font-awesome-icon @click="upMethods" v-if="draw" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;" class="font-awesome" :icon="['fas','angle-up']" />
-
+            <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
+          </a>
+        </div>
+      </transition-group>
+    </div>
+    <font-awesome-icon @click="upMethods" v-if="draw" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;" class="font-awesome" :icon="['fas','angle-up']" />
 
   </div>
 </template>
 
 <script>
-import html2canvas from 'html2canvas';
+//import html2canvas from 'html2canvas';
 let s_result = require('./draw.js').s_result;
 export default {
   data() {
@@ -67,8 +66,8 @@ export default {
     this.initial();
   },
   methods: {
-    upMethods(){
-      window.scroll({top:0,behavior:'smooth'})
+    upMethods() {
+      window.scroll({ top: 0, behavior: 'smooth' });
     },
     domshot(pure) {
       let imageWidth,
@@ -104,7 +103,7 @@ export default {
       cardSet.style.MozTransform = 'scale(0.8,0.8)';
 
       cardSet.style.borderRadius = '10px';
-
+      /*
       html2canvas(cardSet, { logging: false }).then(canvas => {
         cardSet.style.width = '';
         cardSet.style.height = '';
@@ -121,6 +120,7 @@ export default {
         link.download = `${timestamp}.jpg`;
         link.click();
       });
+      */
     },
     initial() {
       let num = this.$route.params.num;
@@ -132,8 +132,8 @@ export default {
       }
       this.number = Number(num);
     },
-    tEnd(e) {
-      let touchTime = (e.timeStamp - this.time) / 1000;
+    tEnd() {
+      //let touchTime = (e.timeStamp - this.time) / 1000;
 
       //if(touchTime<2) return
       //console.log(touchTime);
@@ -176,7 +176,7 @@ export default {
 .draw-button {
   font-size: 100px;
   margin: 10px;
-  cursor:pointer;
+  cursor: pointer;
 }
 .choose-button {
   flex: 1;

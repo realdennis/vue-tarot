@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-         <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
+        <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
         <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
           <div class="social-icon-wrapper">
             <network class="network" network="facebook">
@@ -38,10 +38,10 @@
             </network>
           </div>
         </social-sharing>
-         <div class="draw-time">
+        <div class="draw-time">
           <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
         </div>
-       
+
       </div>
     </transition>
 
@@ -59,8 +59,8 @@
 
 <script>
 import SocialSharing from 'vue-social-sharing';
-import html2canvas from 'html2canvas';
-let daily = require('./draw.js').daily;
+//import html2canvas from 'html2canvas';
+import { daily } from './draw.js';
 
 export default {
   data() {
@@ -125,7 +125,7 @@ export default {
     },
     dailyshot() {
       let result = document.querySelector('.result');
-      let temp = result.style.backgroundColor;
+      //let temp = result.style.backgroundColor;
 
       document.querySelector('.r-animation').style.animationDuration = '0s';
 
@@ -135,14 +135,10 @@ export default {
       result.style.webkitTransform = 'scale(0.8,0.8)';
       result.style.MozTransform = 'scale(0.8,0.8)';
       */
+
+      /*
       html2canvas(result).then(canvas => {
         result.style.backgroundColor = temp;
-
-        /*
-          result.style.transform = '';
-          result.style.webkitTransform = '';
-          result.style.MozTransform = '';
-          */
         let dataUrl = canvas.toDataURL();
         var link = document.createElement('a');
         let now = new Date();
@@ -150,6 +146,7 @@ export default {
         link.href = dataUrl;
         link.click();
       });
+      */
     },
     render(d) {
       if (d.reversed) this.style = 'transform: scaleY(-1);';
@@ -174,7 +171,7 @@ export default {
       this.startTouchTime = e.timeStamp;
       this.size += 50;
     },
-    tEnd(e) {
+    tEnd() {
       let d = daily();
       let now = new Date();
       d.time = {
@@ -207,10 +204,12 @@ export default {
 
 <style lang="scss" scoped>
 .social-icon-wrapper {
-    font-size: 50px;
-    color: gray;
-    cursor: pointer;
-    margin:10px;
+  font-size: 50px;
+  color: gray;
+  margin: 10px;
+  display:flex;
+  width:50%;
+  justify-content: space-around;
 }
 .draw-button {
   font-size: 100px;
