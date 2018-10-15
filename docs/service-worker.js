@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.89ebf379d18f7dd05fbcfdf79fe67349.js"
+  "precache-manifest.288ec741f070c3f98f598efd9e40d5c9.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tarot"});
