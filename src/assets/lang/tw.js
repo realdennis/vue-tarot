@@ -1,4 +1,4 @@
-module.exports={
+export default{
   message: {
     name: '塔羅機器人',
     start: '開始使用',
