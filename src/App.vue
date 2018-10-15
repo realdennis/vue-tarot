@@ -49,6 +49,7 @@ main {
   display: flex;
   flex-direction: column;
   .router {
+    max-width:100%;
     flex: 1;
     min-height: inherit;
     display: flex;
@@ -60,7 +61,7 @@ main {
 
 h1.title {
   height: 40px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px;
   position: fixed;
   top: 0;
@@ -70,6 +71,8 @@ h1.title {
   z-index: 1000;
   background-color: #fff;
   box-shadow: 1px 1px 1px gainsboro;
+  background-color:rgb(45,53,73);
+  color:rgb(244,244,244);
 }
 
 footer {

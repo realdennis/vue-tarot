@@ -181,8 +181,9 @@ export default {
   flex: 1;
 }
 .result {
+  max-width:100%;
   background-color: white;
-  padding: 20px 15px;
+  padding: 15px 0;
   color: black;
   border-radius: 10px;
 }
