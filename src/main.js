@@ -79,17 +79,19 @@ Vue.config.productionTip = false;
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {  faDotCircle } from '@fortawesome/free-regular-svg-icons';
-import {  faHome } from '@fortawesome/free-solid-svg-icons';
-import {  faHandLizard } from '@fortawesome/free-solid-svg-icons';
-import {  faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import {  faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import {  faHome,faHandLizard,faInfoCircle,faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import {  faTwitterSquare,faLine,faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 
 library.add(faDotCircle);
 library.add(faHome);
 library.add(faHandLizard);
 library.add(faInfoCircle);
 library.add(faAngleUp);
+library.add(faTwitterSquare);
+library.add(faLine);
+library.add(faFacebookSquare);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

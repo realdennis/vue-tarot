@@ -24,10 +24,24 @@
             </div>
           </div>
         </div>
-        <div class="draw-time">
+         <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
+        <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
+          <div class="social-icon-wrapper">
+            <network class="network" network="facebook">
+              <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
+            </network>
+            <network class="network" network="line">
+              <font-awesome-icon class="social-icon" :icon="['fab','line']" />
+            </network>
+            <network class="network" network="twitter">
+              <font-awesome-icon class="social-icon" :icon="['fab','twitter-square']" />
+            </network>
+          </div>
+        </social-sharing>
+         <div class="draw-time">
           <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
         </div>
-        <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
+       
       </div>
     </transition>
 
@@ -44,6 +58,7 @@
 </template>
 
 <script>
+import SocialSharing from 'vue-social-sharing';
 import html2canvas from 'html2canvas';
 let daily = require('./draw.js').daily;
 
@@ -69,13 +84,45 @@ export default {
       google: 'https://google.com/search?q='
     };
   },
+  components: {
+    SocialSharing
+  },
+  computed: {
+    socialContent() {
+      return `(${this.time.month}/${this.time.date}) ${this.flagName} ${
+        this.cardName
+      } - "${this.mean}"`;
+    }
+  },
   created() {
     let rc = this.$ls.get('daily', 'nothing');
     if (rc == 'nothing') return;
     //console.log(rc)
     this.render(rc);
   },
+  mounted() {
+    //For Twitter
+  },
   methods: {
+    twitterHook() {
+      window.twttr = (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      })(document, 'script', 'twitter-wjs');
+    },
     dailyshot() {
       let result = document.querySelector('.result');
       let temp = result.style.backgroundColor;
@@ -159,6 +206,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.social-icon-wrapper {
+    font-size: 50px;
+    color: gray;
+    cursor: pointer;
+    margin:10px;
+}
 .draw-button {
   font-size: 100px;
   margin: 10px;
@@ -174,6 +227,7 @@ export default {
   }
 }
 .r-animation {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -181,14 +235,14 @@ export default {
   flex: 1;
 }
 .result {
-  max-width:100%;
+  max-width: 100%;
   background-color: white;
-  padding: 15px 0;
+  padding: 15px;
   color: black;
   border-radius: 10px;
 }
 .draw-time {
-  margin: 15px;
+  margin: 10px;
   font-style: italic;
 }
 

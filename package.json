@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-brands-svg-icons": "^5.4.1",
     "@fortawesome/free-regular-svg-icons": "^5.4.1",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@fortawesome/vue-fontawesome": "^0.1.1",
@@ -22,6 +23,7 @@
     "vue-i18n": "^7.7.0",
     "vue-ls": "^3.0.5",
     "vue-router": "^3.0.1",
+    "vue-social-sharing": "^2.3.3",
     "vue2-animate": "^2.1.0"
   },
   "devDependencies": {
