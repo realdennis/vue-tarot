@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.288ec741f070c3f98f598efd9e40d5c9.js"
+  "precache-manifest.93dd644a5334a15aad23bf71e251f73d.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "tarot"});
+workbox.core.setCacheNameDetails({prefix: "tarobot"});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
