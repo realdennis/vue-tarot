@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue';
+import 'reset-css';
 //import FastClick from 'fastclick'
 import VueRouter from 'vue-router';
 import App from './App';
@@ -13,7 +14,6 @@ import Daily from '@/components/daily';
 import Disclaimer from '@/components/disclaimer';
 import Spread from '@/components/spread';
 import SpreadResult from '@/components/spreadresult';
-import 'reset-css';
 import Storage from 'vue-ls';
 
 require('vue2-animate/dist/vue2-animate.min.css');
