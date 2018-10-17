@@ -3,7 +3,7 @@
     <h1 class="title">{{$t("message.daily")}}</h1>
     <div v-if="isDraw" class="result-wrapper">
       <div class="result">
-        <img class="tarot" :src="cardInfo.path" :style="cardInfo.style">
+        <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
         <div class="tarot-text">
           <div class="card-mean">
             <i> {{ cardInfo.mean }}</i>
@@ -29,7 +29,7 @@
         </div>
       </social-sharing>
       <div class="draw-time">
-        <p v-html="$t('message.drawTime',{ month:drawTime.month,date:drawTime.date,hours:drawTime.hours,restHour:restHour })"></p>
+        <p v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })"></p>
       </div>
     </div>
     <div class="choose-button" v-else>
@@ -52,17 +52,17 @@ export default {
   data() {
     return {
       isDraw: false,
-      drawTime: {
-        month: Number,
-        date: Number,
-        hours: Number
-      },
       cardInfo: {
-        path: String,
-        mean: String,
-        cardName: String,
-        flagName: String,
-        style: String
+        drawTime: {
+          month: 0,
+          date: 0,
+          hours: 0
+        },
+        path: '',
+        mean: '',
+        cardName: '',
+        flagName: '',
+        reversed: false
       }
     };
   },
@@ -71,23 +71,26 @@ export default {
       return 24 - new Date().getHours();
     },
     gSearchLink() {
-      return `https://google.com/search?q=${this.flagName} ${this.cardName}`;
+      return `https://google.com/search?q=${this.cardInfo.flagName} ${
+        this.cardInfo.cardName
+      }`;
     },
     socialContent() {
-      return `(${this.drawTime.month}/${this.drawTime.date}) ${this.flagName} ${
-        this.cardInfo.cardName
-      } - "${this.cardInfo.mean}"`;
+      return `(${this.cardInfo.drawTime.month}/${
+        this.cardInfo.drawTime.date
+      }) ${this.cardInfo.flagName} ${this.cardInfo.cardName} - "${
+        this.cardInfo.mean
+      }"`;
     }
   },
   mounted() {
     let local = this.$ls.get('daily', null);
-    if (local) this.render(local);
+    if (local) this.$nextTick().then(() => this.render(local));
   },
   methods: {
     render(d) {
-      if (d.reversed) this.cardInfo.style = 'transform: rotate(180deg);';
-      this.cardInfo.path = d.path;
-      this.cardInfo.mean = d.mean;
+      //if (d.reversed) this.cardInfo.style = 'transform: rotate(180deg);';
+      this.cardInfo = d;
       if (
         this.$root.$i18n.locale === 'zh-TW' ||
         this.$root.$i18n.locale === 'zh-CN'
@@ -96,35 +99,25 @@ export default {
         this.cardInfo.flagName = d.flag.tw;
       } else {
         this.cardInfo.cardName = d.card.en;
-        this.cardInfoflagName = d.flag.en;
+        this.cardInfo.flagName = d.flag.en;
       }
-      this.drawTime = d.time;
       this.isDraw = true;
     },
     drawHandler() {
       let d = daily();
       let now = new Date();
-      d.time = {
+      d.drawTime = {
         month: now.getMonth() + 1, //會差一個月
         date: now.getDate(),
         hours: now.getHours()
       };
-      let h = 24 - now.getHours();
-      let m = 60 - now.getMinutes();
-      let expireTime = ((h - 1) * 60 + m) * 60 * 1000; // ms
+      const expire = () => {
+        let h = 24 - now.getHours();
+        let m = 60 - now.getMinutes();
+        return ((h - 1) * 60 + m) * 60 * 1000; // ms
+      };
+      this.$ls.set('daily', d, expire()); //a day expire
       this.render(d);
-      this.$ls.set(
-        'daily',
-        {
-          time: this.drawTime,
-          card: d.card,
-          flag: d.flag,
-          path: d.path,
-          reversed: d.reversed,
-          mean: d.mean
-        },
-        expireTime
-      ); //a day expire
     }
   }
 };
@@ -168,6 +161,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: stretch;
+    .reversed {
+      transform: rotate(180deg);
+    }
     .tarot-text {
       display: flex;
       flex-direction: column;
