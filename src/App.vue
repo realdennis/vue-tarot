@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click.right="e=>e.preventDefault()">
     <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
-    <header>{{$t(headerName)}}</header>
+    <header>{{$t(`message.${this.$route.name}`)}}</header>
     <main>
       <router-view class="router" />
     </main>
@@ -17,11 +17,6 @@ export default {
   name: 'app',
   components: { footerNavigator },
   computed: {
-    headerName() {
-      return this.$route.name.includes('spread')
-        ? `message.spread`
-        : `message.${this.$route.name}`;
-    }
     /*
     pwa() {
       if (
@@ -43,10 +38,10 @@ export default {
 
 <style lang="scss">
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */ {
@@ -58,16 +53,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 main {
-  height:100%;
+  height: 100%;
   padding: 40px 0;
   & * {
     max-width: 100%;
   }
   .router {
-    min-height:100%;
+    min-height: 100%;
     //min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;

@@ -1,16 +1,9 @@
 <template>
   <div id="spread-result">
-    <!--
-    <h1 class="title">{{$t("message.spread")}}</h1>
-    -->
     <div class="draw-wrapper" v-if="hasDraw">
       <div v-for="(c,key) in each" class="card" :key="key">
         <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
         <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
-          <!--
-            <h3 style="opacity: .8">{{c.flagName}}</h3>
-            <h4 style="opacity: .8" class="card-name">{{c.cardName}}</h4>
-            -->
           <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
         </a>
       </div>
@@ -39,6 +32,7 @@ export default {
       each: {},
     };
   },
+  props:['num'],
   computed:{
   },
   updated() {
@@ -55,7 +49,7 @@ export default {
       window.scroll({ top: 0, behavior: 'smooth' });
     },
     initial() {
-      let num = this.$route.params.num;
+      let num = this.num;
       if (num == undefined) return;
       if (num != 1 && num != 3 && num != 5) {
         alert('Not Allow to Access!');

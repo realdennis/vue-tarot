@@ -1,21 +1,34 @@
 <template>
   <div class="spread">
-    <!--
-    <h1 class="title">{{$t("message.spread")}}</h1>
-    -->
-    <div class="choose">
+    <div class="choose" v-if="!hasChoose">
       <div class="link">
-        <router-link to="/result/1" class="button">1</router-link>
-        <router-link to="/result/3" class="button">3</router-link>
-        <router-link to="/result/5" class="button">5</router-link>
+        <button @click="()=>chooseHandler(1)" class="button">1</button>
+        <button @click="()=>chooseHandler(3)" class="button">3</button>
+        <button @click="()=>chooseHandler(5)" class="button">5</button>
       </div>
       <p>{{$t("message.spreadChoose")}}</p>
     </div>
+    <spread-result v-else :num="number"></spread-result>
   </div>
 </template>
 
 <script>
-export default {};
+import SpreadResult from './Spreadresult';
+export default {
+  components: { SpreadResult },
+  data() {
+    return {
+      hasChoose: false,
+      number: 0
+    };
+  },
+  methods: {
+    chooseHandler(num) {
+      this.number = num;
+      this.hasChoose = true;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

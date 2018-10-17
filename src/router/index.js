@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import About from '@/components/about';
-import Daily from '@/components/daily';
-import Spread from '@/components/spread';
-import SpreadResult from '@/components/spreadresult';
+import About from '@/components/About';
+import Daily from '@/components/Daily';
+import Spread from '@/components/Spread';
 Vue.use(Router);
 export default new Router({
   routes: [
@@ -21,11 +20,6 @@ export default new Router({
       name:'spread',
       path: '/spread',
       component: Spread
-    },
-    {
-      name:'spread-result',
-      path: '/result/:num',
-      component: SpreadResult
     }
   ]
 });
