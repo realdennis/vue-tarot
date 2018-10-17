@@ -1,6 +1,8 @@
 <template>
   <div class="daily">
+    <!--
     <h1 class="title">{{$t("message.daily")}}</h1>
+    -->
     <div v-if="hasDraw" class="result-wrapper">
       <div class="result">
         <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
@@ -137,6 +139,7 @@ export default {
   }
 }
 .result-wrapper {
+  flex:1;
   display:flex;
   flex-direction: column;
   justify-content: center;

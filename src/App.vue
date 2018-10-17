@@ -1,8 +1,9 @@
 <template>
   <div id="app" @click.right="e=>e.preventDefault()">
     <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
+    <header>{{$t(headerName)}}</header>
     <main>
-        <router-view class="router" />
+      <router-view class="router" />
     </main>
     <footer>
       <footer-navigator />
@@ -16,6 +17,11 @@ export default {
   name: 'app',
   components: { footerNavigator },
   computed: {
+    headerName() {
+      return this.$route.name.includes('spread')
+        ? `message.spread`
+        : `message.${this.$route.name}`;
+    }
     /*
     pwa() {
       if (
@@ -30,26 +36,39 @@ export default {
   mounted() {
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage;
   },
-  methods: {}
+  methods: {},
+  watch: {}
 };
 </script>
 
 <style lang="scss">
-
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
+  height:100%;
 }
 main {
+  height:100%;
   padding: 40px 0;
   & * {
     max-width: 100%;
   }
   .router {
-    width:100%;
-    min-height: calc(100vh - 80px);
+    min-height:100%;
+    //min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,10 +76,13 @@ main {
   }
 }
 
-h1.title {
+h1.title,
+header {
   height: 40px;
   font-size: 18px;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -68,7 +90,6 @@ h1.title {
   top: env(safe-area-inset-top);
   z-index: 1000;
   background-color: #fff;
-  text-align: center;
   box-shadow: 1px 1px 1px gainsboro;
   //background-color: rgb(45, 53, 73);
   //color: rgb(244, 244, 244);

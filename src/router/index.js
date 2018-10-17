@@ -8,23 +8,22 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      name:'daily',
       path: '/',
       component: Daily
     },
     {
+      name:'about',
       path: '/about',
       component: About
     },
     {
-      path: '/daily',
-      component: Daily
-    },
-    {
+      name:'spread',
       path: '/spread',
       component: Spread
     },
     {
-      name: 'result',
+      name:'spread-result',
       path: '/result/:num',
       component: SpreadResult
     }

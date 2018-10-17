@@ -1,6 +1,8 @@
 <template>
   <div id="spread-result">
+    <!--
     <h1 class="title">{{$t("message.spread")}}</h1>
+    -->
     <div class="draw-wrapper" v-if="hasDraw">
       <div v-for="(c,key) in each" class="card" :key="key">
         <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">

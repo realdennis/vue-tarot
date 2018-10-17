@@ -1,11 +1,13 @@
 <template>
   <div class="spread">
+    <!--
     <h1 class="title">{{$t("message.spread")}}</h1>
+    -->
     <div class="choose">
       <div class="link">
-        <router-link :to="{name:'result',params:{num:1}}" class="button">1</router-link>
-        <router-link :to="{name:'result',params:{num:3}}" class="button">3</router-link>
-        <router-link :to="{name:'result',params:{num:5}}" class="button">5</router-link>
+        <router-link to="/result/1" class="button">1</router-link>
+        <router-link to="/result/3" class="button">3</router-link>
+        <router-link to="/result/5" class="button">5</router-link>
       </div>
       <p>{{$t("message.spreadChoose")}}</p>
     </div>

@@ -1,12 +1,13 @@
 <template>
   <div class="about">
+    <!--
     <h1 class="title">  {{$t('message.about')}}</h1>
+    -->
 
-    <div class="contents">
-
+    <div class="contents-wrapper">
       <div class="profile">
         <img @click="changeLocale" src="../assets/logo.jpg" alt="logo" />
-        <h2>  {{$t('message.name')}}</h2>
+        <h2> {{$t('message.name')}}</h2>
       </div>
       <ul class="info">
         <li>
@@ -63,7 +64,7 @@ export default {
 .jojo {
   width: 220px;
 }
-.contents {
+.contents-wrapper {
   height: 100%;
   flex: 1;
   display: flex;
