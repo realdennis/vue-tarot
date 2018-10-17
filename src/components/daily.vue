@@ -1,7 +1,7 @@
 <template>
   <div class="daily">
     <h1 class="title">{{$t("message.daily")}}</h1>
-    <div v-if="isDraw" class="result-wrapper">
+    <div v-if="hasDraw" class="result-wrapper">
       <div class="result">
         <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
         <div class="tarot-text">
@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      isDraw: false,
+      hasDraw: false,
       cardInfo: {
         drawTime: {
           month: 0,
@@ -99,7 +99,7 @@ export default {
         this.cardInfo.cardName = d.card.en;
         this.cardInfo.flagName = d.flag.en;
       }
-      this.isDraw = true;
+      this.hasDraw = true;
     },
     drawHandler() {
       let d = daily();
