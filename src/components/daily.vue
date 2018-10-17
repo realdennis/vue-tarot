@@ -80,9 +80,8 @@ export default {
     }
   },
   mounted() {
-    let rc = this.$ls.get('daily', 'nothing');
-    if (rc == 'nothing') return;
-    this.render(rc);
+    let local = this.$ls.get('daily', null);
+    if (local) this.render(local);
   },
   methods: {
     render(d) {
