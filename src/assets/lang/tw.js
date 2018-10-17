@@ -6,7 +6,7 @@ export default{
     daily:'今日運勢',
     moreDaily:'一天僅限一次，於每晚12點重置',
     drawTime:'<p>上次抽牌於{month}月{date}號 {hours}點</p>\
-<p><i>於{restHour}小時後重置</i></p>',
+<i>於{restHour}小時後重置</i>',
     spread:'抽牌機',
     spreadChoose:'請選擇要抽幾張牌',
     spreadNumber:'您想要抽 {number} 張牌',

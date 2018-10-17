@@ -28,9 +28,7 @@
           </network>
         </div>
       </social-sharing>
-      <div class="draw-time">
-        <p v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })"></p>
-      </div>
+        <div class="draw-time" v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })"/>
     </div>
     <div class="choose-button" v-else>
       <font-awesome-icon @click="drawHandler" class="draw-button" :icon="['far','dot-circle']" />

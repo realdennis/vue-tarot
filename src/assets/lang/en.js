@@ -6,7 +6,7 @@ export default{
     daily:'Daily',
     moreDaily:"Once per day, reset at 12pm",
     drawTime:'<p>Last draw on {month}/{date} {hours} o\'clock</p>\
-          <p><i>Reset after {restHour} hours</i></p>',
+<i>Reset after {restHour} hours</i>',
     spread:'Spread',
     spreadChoose:'Please choose the number of cards',
     spreadNumber:'You wanna draw {number} cards',
