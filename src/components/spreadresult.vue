@@ -26,7 +26,7 @@
 
 <script>
 //import html2canvas from 'html2canvas';
-import { s_result } from './draw.js';
+import { s_result } from '@/lib/draw.js';
 export default {
   data() {
     return {

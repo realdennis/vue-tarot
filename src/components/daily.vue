@@ -41,7 +41,7 @@
 
 <script>
 import SocialSharing from 'vue-social-sharing';
-import { daily } from './draw.js';
+import { daily } from '@/lib/draw.js';
 
 export default {
   components: {

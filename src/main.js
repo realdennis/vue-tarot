@@ -3,7 +3,12 @@ import 'reset-css';
 //For reset browser default CSS
 import router from './router';
 import i18n from './i18n';
+
+//LocalStorage Use
 import Storage from 'vue-ls';
+Vue.use(Storage);
+
+//Fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faDotCircle } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -18,8 +23,6 @@ import {
   faFacebookSquare
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import smoothscroll from 'smoothscroll-polyfill';
-Vue.use(Storage);
 library.add(
   faDotCircle,
   faHome,
@@ -32,12 +35,17 @@ library.add(
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+//For all browser smooth scroll 
+import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
+
 Vue.config.productionTip = false;
 import App from './App.vue';
-import './registerServiceWorker';
 new Vue({
   router,
   i18n,
   render: h => h(App)
 }).$mount('#app');
+
+//Service Worker
+import './registerServiceWorker';
