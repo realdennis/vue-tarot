@@ -28,7 +28,7 @@
           </network>
         </div>
       </social-sharing>
-        <div class="draw-time" v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })"/>
+      <div class="draw-time" v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })" />
     </div>
     <div class="choose-button" v-else>
       <font-awesome-icon @click="drawHandler" class="draw-button" :icon="['far','dot-circle']" />
@@ -122,14 +122,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.social-icon-wrapper {
-  font-size: 50px;
-  color: gray;
-  margin: 10px;
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-}
 .daily {
   .choose-button {
     flex: 1;
@@ -145,11 +137,10 @@ export default {
   }
 }
 .result-wrapper {
-  display: flex;
+  display:flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  flex: 1;
+  align-items:center;
   .result {
     max-width: 100%;
     background-color: white;
@@ -159,6 +150,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: stretch;
+    img.tarot {
+      max-width: 50%;
+      max-height: 260px;
+      object-fit: contain;
+    }
     .reversed {
       transform: rotate(180deg);
     }
@@ -176,6 +172,15 @@ export default {
       }
     }
   }
+  .social-icon-wrapper {
+    font-size: 50px;
+    color: gray;
+    margin: 10px;
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+  }
+
   .draw-time {
     margin: 10px;
     font-style: italic;

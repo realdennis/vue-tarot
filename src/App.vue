@@ -2,7 +2,7 @@
   <div id="app" @click.right="e=>e.preventDefault()">
     <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
     <main>
-      <router-view class="router"></router-view>
+        <router-view class="router" />
     </main>
     <footer>
       <footer-navigator />
@@ -35,33 +35,25 @@ export default {
 </script>
 
 <style lang="scss">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 main {
-  min-height: inherit;
-  flex: 1;
-  padding: 45px 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  .router {
+  padding: 40px 0;
+  & * {
     max-width: 100%;
-    flex: 1;
-    min-height: inherit;
+  }
+  .router {
+    width:100%;
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .router *{
-    max-width:100%;
   }
 }
 
@@ -111,10 +103,6 @@ body {
 }
 * {
   box-sizing: border-box;
-}
-
-img.tarot {
-  height: 260px;
 }
 a {
   color: #033965;

@@ -1,7 +1,6 @@
 <template>
   <div id="spread-result">
     <h1 class="title">{{$t("message.spread")}}</h1>
-
     <div class="draw-wrapper" v-if="hasDraw">
       <div v-for="(c,key) in each" class="card" :key="key">
         <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
@@ -90,6 +89,8 @@ export default {
   transform: rotate(180deg);
 }
 .draw-wrapper{
+  flex:1;
+  height:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,14 +121,8 @@ button {
   justify-content: center;
   align-items: center;
 }
-.card-set {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
 .card {
+  height:100%;
   max-width: 100%;
   min-width: 20%;
   margin: 10px 15px;
@@ -138,7 +133,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
+  img.tarot {
     max-width: 80%;
     height: auto;
     object-fit: contain;
