@@ -45,7 +45,11 @@ export default {
   height: 100%;
 }
 main {
-  height: 100%;
+  min-height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
   padding: 40px 0;
   & * {
     max-width: 100%;
