@@ -12,22 +12,11 @@
 </template>
 
 <script>
-import footerNavigator from '@/components/footerNavigator';
+import FooterNavigator from '@/components/FooterNavigator';
 export default {
   name: 'app',
-  components: { footerNavigator },
-  computed: {
-    /*
-    pwa() {
-      if (
-        window.matchMedia('(display-mode: standalone)').matches ||
-        window.navigator.standalone
-      )
-        return true;
-      return false;
-    }
-    */
-  },
+  components: { FooterNavigator },
+  computed: {},
   mounted() {
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage;
   },
