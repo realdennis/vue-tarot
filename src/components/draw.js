@@ -1,4 +1,4 @@
-//global
+//Global
 const tarot = require('./tarot.json');
 const suit_dic = {
   major: 'ar',
@@ -12,8 +12,7 @@ const dual_dic = {
   0: ['正位', 'light', 'Right'],
   1: ['逆位', 'shadow', 'Reversed']
 };
-
-export function cardinfo(index) {
+const cardinfo = index => {
   let chineseName = tarot['tarot'][index]['name2'];
   let englishName = tarot['tarot'][index]['name'];
   let dual = Math.round(Math.random()) ? 0 : 1;
@@ -51,35 +50,31 @@ export function cardinfo(index) {
     path: './static/tarot/' + tarotName,
     mean: mean[randomChoice]
   };
-}
-
-//exports.info = cardinfo;
-
-export  function daily() {
+};
+//End of Global
+export function daily() {
   let index = Math.floor(Math.random() * 78);
   return cardinfo(index);
 }
-
-function multi_random(number) {
-  let collect = [];
-  function check_repeat(array, rd) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] == rd) return false;
-    }
-    return true;
-  }
-  while (number) {
-    let rd = Math.floor(Math.random() * 78);
-    //check
-    if (check_repeat(collect, rd)) {
-      collect.push(rd);
-      number--;
-    }
-  }
-  return collect;
-}
-
 export function s_result(number) {
+  function multi_random(number) {
+    let collect = [];
+    function check_repeat(array, rd) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] == rd) return false;
+      }
+      return true;
+    }
+    while (number) {
+      let rd = Math.floor(Math.random() * 78);
+      //check
+      if (check_repeat(collect, rd)) {
+        collect.push(rd);
+        number--;
+      }
+    }
+    return collect;
+  }
   let spread = multi_random(number);
   let list = {};
   while (number--) {

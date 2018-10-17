@@ -60,6 +60,9 @@ main {
     justify-content: center;
     align-items: center;
   }
+  .router *{
+    max-width:100%;
+  }
 }
 
 h1.title {

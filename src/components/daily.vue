@@ -1,177 +1,108 @@
 <template>
   <div class="daily">
     <h1 class="title">{{$t("message.daily")}}</h1>
-
-    <transition name="zoom">
-      <div v-if="draw" class="r-animation" style="animation-duration: 2s">
-        <div class="result">
-          <div class="flex-result" style="padding:5px;">
-            <div style="display:flex;">
-              <img class="tarot" style="flex-shrink:0;" :src="path" :style="style">
-              <div style="display:flex;flex-direction:column;justify-content:space-between; margin:10px 20px;">
-                <div style="height:100%;display:flex;flex-direction:column;justify-content:center;">
-                  <i class="card-mean"> {{ mean }}</i>
-                </div>
-
-                <div>
-                  <a :href="google+cardName" target="_blank">
-
-                    <h6 class="card-name"> {{flagName}}</h6>
-                    <h4 class="card-name"> {{cardName}}</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
+    <div v-if="isDraw" class="result-wrapper">
+      <div class="result">
+        <img class="tarot" :src="cardInfo.path" :style="cardInfo.style">
+        <div class="tarot-text">
+          <div class="card-mean">
+            <i> {{ cardInfo.mean }}</i>
           </div>
+          <a class="card-name" :href="gSearchLink" target="_blank">
+            <h6> {{ cardInfo.flagName }}</h6>
+            <h4> {{ cardInfo.cardName }}</h4>
+          </a>
         </div>
-        <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
-        <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
-          <div class="social-icon-wrapper">
-            <network class="network" network="facebook">
-              <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
-            </network>
-            <network class="network" network="line">
-              <font-awesome-icon class="social-icon" :icon="['fab','line']" />
-            </network>
-            <network class="network" network="twitter">
-              <font-awesome-icon class="social-icon" :icon="['fab','twitter-square']" />
-            </network>
-          </div>
-        </social-sharing>
-        <div class="draw-time">
-          <p v-html="$t('message.drawTime',{ month:time.month,date:time.date,hours:time.hours,restHour:restHour })"></p>
-        </div>
-
       </div>
-    </transition>
-
-    <div class="choose-button" v-if="!draw">
-
-      <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
+      <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
+      <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
+        <div class="social-icon-wrapper">
+          <network class="network" network="facebook">
+            <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
+          </network>
+          <network class="network" network="line">
+            <font-awesome-icon class="social-icon" :icon="['fab','line']" />
+          </network>
+          <network class="network" network="twitter">
+            <font-awesome-icon class="social-icon" :icon="['fab','twitter-square']" />
+          </network>
+        </div>
+      </social-sharing>
+      <div class="draw-time">
+        <p v-html="$t('message.drawTime',{ month:drawTime.month,date:drawTime.date,hours:drawTime.hours,restHour:restHour })"></p>
+      </div>
+    </div>
+    <div class="choose-button" v-else>
+      <font-awesome-icon @click="drawHandler" class="draw-button" :icon="['far','dot-circle']" />
       <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>-->
       <h3>{{$t("message.moreDaily")}}</h3>
       <p>{{$t("message.meditation")}}</p>
-
     </div>
-
   </div>
 </template>
 
 <script>
 import SocialSharing from 'vue-social-sharing';
-//import html2canvas from 'html2canvas';
 import { daily } from './draw.js';
 
 export default {
+  components: {
+    SocialSharing
+  },
   data() {
     return {
-      time: {
+      isDraw: false,
+      drawTime: {
         month: Number,
         date: Number,
         hours: Number
       },
-      restHour: 24 - new Date().getHours(),
-      msg: 'Choose one',
-      startTouchTime: 0,
-      draw: false,
-      path: '',
-      mean: '',
-      card: '',
-      flag: '',
-      cardName: '',
-      flagName: '',
-      style: '',
-      google: 'https://google.com/search?q='
+      cardInfo: {
+        path: String,
+        mean: String,
+        cardName: String,
+        flagName: String,
+        style: String
+      }
     };
   },
-  components: {
-    SocialSharing
-  },
   computed: {
+    restHour() {
+      return 24 - new Date().getHours();
+    },
+    gSearchLink() {
+      return `https://google.com/search?q=${this.flagName} ${this.cardName}`;
+    },
     socialContent() {
-      return `(${this.time.month}/${this.time.date}) ${this.flagName} ${
-        this.cardName
-      } - "${this.mean}"`;
+      return `(${this.drawTime.month}/${this.drawTime.date}) ${this.flagName} ${
+        this.cardInfo.cardName
+      } - "${this.cardInfo.mean}"`;
     }
   },
-  created() {
+  mounted() {
     let rc = this.$ls.get('daily', 'nothing');
     if (rc == 'nothing') return;
-    //console.log(rc)
     this.render(rc);
   },
-  mounted() {
-    //For Twitter
-  },
   methods: {
-    twitterHook() {
-      window.twttr = (function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0],
-          t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function(f) {
-          t._e.push(f);
-        };
-
-        return t;
-      })(document, 'script', 'twitter-wjs');
-    },
-    dailyshot() {
-      let result = document.querySelector('.result');
-      //let temp = result.style.backgroundColor;
-
-      document.querySelector('.r-animation').style.animationDuration = '0s';
-
-      result.style.backgroundColor = 'rgb(230, 180, 173,.4)';
-      /*
-      result.style.transform = 'scale(0.8,0.8)';
-      result.style.webkitTransform = 'scale(0.8,0.8)';
-      result.style.MozTransform = 'scale(0.8,0.8)';
-      */
-
-      /*
-      html2canvas(result).then(canvas => {
-        result.style.backgroundColor = temp;
-        let dataUrl = canvas.toDataURL();
-        var link = document.createElement('a');
-        let now = new Date();
-        link.download = `daily-${now.getMonth() + 1}-${now.getDate()}.jpg`;
-        link.href = dataUrl;
-        link.click();
-      });
-      */
-    },
     render(d) {
-      if (d.reversed) this.style = 'transform: scaleY(-1);';
-      this.path = d.path;
-      this.mean = d.mean;
+      if (d.reversed) this.cardInfo.style = 'transform: rotate(180deg);';
+      this.cardInfo.path = d.path;
+      this.cardInfo.mean = d.mean;
       if (
         this.$root.$i18n.locale === 'zh-TW' ||
         this.$root.$i18n.locale === 'zh-CN'
       ) {
-        this.cardName = d.card.tw;
-        this.flagName = d.flag.tw;
+        this.cardInfo.cardName = d.card.tw;
+        this.cardInfo.flagName = d.flag.tw;
       } else {
-        this.cardName = d.card.en;
-        this.flagName = d.flag.en;
+        this.cardInfo.cardName = d.card.en;
+        this.cardInfoflagName = d.flag.en;
       }
-
-      this.time = d.time;
-      this.msg = 'Go Back';
-      this.draw = true;
+      this.drawTime = d.time;
+      this.isDraw = true;
     },
-    tStart(e) {
-      this.startTouchTime = e.timeStamp;
-      this.size += 50;
-    },
-    tEnd() {
+    drawHandler() {
       let d = daily();
       let now = new Date();
       d.time = {
@@ -181,21 +112,19 @@ export default {
       };
       let h = 24 - now.getHours();
       let m = 60 - now.getMinutes();
-
-      let restTime = ((h - 1) * 60 + m) * 60 * 1000; // ms
-
+      let expireTime = ((h - 1) * 60 + m) * 60 * 1000; // ms
       this.render(d);
       this.$ls.set(
         'daily',
         {
-          time: this.time,
+          time: this.drawTime,
           card: d.card,
           flag: d.flag,
           path: d.path,
           reversed: d.reversed,
           mean: d.mean
         },
-        restTime
+        expireTime
       ); //a day expire
     }
   }
@@ -207,14 +136,9 @@ export default {
   font-size: 50px;
   color: gray;
   margin: 10px;
-  display:flex;
-  width:50%;
+  display: flex;
+  width: 50%;
   justify-content: space-around;
-}
-.draw-button {
-  font-size: 100px;
-  margin: 10px;
-  cursor: pointer;
 }
 .daily {
   .choose-button {
@@ -223,29 +147,45 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .draw-button {
+      font-size: 100px;
+      margin: 10px;
+      cursor: pointer;
+    }
   }
 }
-.r-animation {
-  width: 100%;
+.result-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1;
-}
-.result {
-  max-width: 100%;
-  background-color: white;
-  padding: 15px;
-  color: black;
-  border-radius: 10px;
-}
-.draw-time {
-  margin: 10px;
-  font-style: italic;
-}
-
-.choose {
-  padding: 30px;
+  .result {
+    max-width: 100%;
+    background-color: white;
+    padding: 15px;
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    .tarot-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0px 20px;
+      .card-mean {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .draw-time {
+    margin: 10px;
+    font-style: italic;
+  }
 }
 </style>
