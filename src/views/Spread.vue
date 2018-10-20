@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import SpreadResult from './Spreadresult';
+import SpreadResult from '@/components/Spreadresult';
 export default {
   components: { SpreadResult },
   data() {

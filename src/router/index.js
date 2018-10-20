@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import About from '@/components/About';
-import Daily from '@/components/Daily';
-import Spread from '@/components/Spread';
+import About from '@/views/About';
+import Daily from '@/views/Daily';
+import Spread from '@/views/Spread';
 Vue.use(Router);
 export default new Router({
   routes: [
