@@ -24,17 +24,15 @@ import { s_result } from '@/lib/draw.js';
 export default {
   data() {
     return {
-      msg: 'Choose One',
       number: 0,
       time: 0,
       hasDraw: false,
       path: '/static/tarot/',
-      each: {},
+      each: {}
     };
   },
-  props:['num'],
-  computed:{
-  },
+  props: ['num'],
+  computed: {},
   updated() {
     this.initial();
   },
@@ -42,8 +40,8 @@ export default {
     this.initial();
   },
   methods: {
-    gSearchLink(param){
-      return `https://google.com/search?q=${param}`
+    gSearchLink(param) {
+      return `https://google.com/search?q=${param}`;
     },
     upMethods() {
       window.scroll({ top: 0, behavior: 'smooth' });
@@ -81,12 +79,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.reversed{
+.reversed {
   transform: rotate(180deg);
 }
-.draw-wrapper{
-  flex:1;
-  height:100%;
+.draw-wrapper {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,7 +116,7 @@ button {
   align-items: center;
 }
 .card {
-  height:100%;
+  height: 100%;
   max-width: 100%;
   min-width: 20%;
   margin: 10px 15px;

@@ -139,11 +139,11 @@ export default {
   }
 }
 .result-wrapper {
-  flex:1;
-  display:flex;
+  flex: 1;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   .result {
     max-width: 100%;
     background-color: white;
