@@ -26,17 +26,6 @@ export default {
 </script>
 
 <style lang="scss">
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,10 +35,10 @@ export default {
 }
 main {
   min-height: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   padding: 40px 0;
   & * {
     max-width: 100%;

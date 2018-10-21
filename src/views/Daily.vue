@@ -1,8 +1,5 @@
 <template>
   <div class="daily">
-    <!--
-    <h1 class="title">{{$t("message.daily")}}</h1>
-    -->
     <div v-if="hasDraw" class="result-wrapper">
       <div class="result">
         <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
@@ -16,7 +13,6 @@
           </a>
         </div>
       </div>
-      <!--        <x-button @click.native="dailyshot" plain type="default" style="width:50%;margin-top:20px">Screenshot</x-button>-->
       <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
         <div class="social-icon-wrapper">
           <network class="network" network="facebook">
@@ -34,7 +30,6 @@
     </div>
     <div class="choose-button" v-else>
       <font-awesome-icon @click="drawHandler" class="draw-button" :icon="['far','dot-circle']" />
-      <!--      <x-icon @click="tEnd" type="ios-circle-filled" size="150"></x-icon>-->
       <h3>{{$t("message.moreDaily")}}</h3>
       <p>{{$t("message.meditation")}}</p>
     </div>
