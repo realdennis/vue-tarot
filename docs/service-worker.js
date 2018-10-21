@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.23899228fa68f2d9d91d4e34b21afc11.js"
+  "precache-manifest.2bfe4a017b4b03a847073f85fcd9d2af.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tarobot"});
