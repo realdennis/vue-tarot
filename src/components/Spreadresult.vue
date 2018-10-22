@@ -1,15 +1,18 @@
 <template>
   <div id="spread-result">
-    <div class="draw-wrapper" v-if="hasDraw">
-      <div v-for="(c,key) in each" class="card" :key="key">
-        <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
-        <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
-          <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
-        </a>
+    <transition name="fade-down">
+      <div class="draw-wrapper" v-if="hasDraw">
+        <font-awesome-icon @click="reset" style="font-size:50px;opacity:.8;color:gray;cursor:pointer; padding:10px;margin:5px;" class="font-awesome" :icon="['fas','redo']" />
+        <div v-for="(c,key) in each" class="card" :key="key">
+          <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
+          <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
+            <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
+          </a>
+        </div>
+        <font-awesome-icon @click="upMethods" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;margin:10px;" class="font-awesome" :icon="['fas','angle-up']" />
       </div>
-      <font-awesome-icon @click="upMethods" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;" class="font-awesome" :icon="['fas','angle-up']" />
-    </div>
-    <div class="choose-button" id="enter" v-else>
+    </transition>
+    <div class="choose-button" id="enter" v-if="!hasDraw">
       <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
       <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
       <p>{{$t("message.meditation")}}</p>
@@ -73,12 +76,24 @@ export default {
         }
       }
       this.hasDraw = true;
+    },
+    reset() {
+      this.each = {};
+      this.hasDraw = false;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.fade-down-enter-active,
+.fade-down-leave-active {
+  transition: all 1.5s ease;
+}
+.fade-down-enter, .fade-down-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translate3d(0, -50%, 0);
+  opacity: 0;
+}
 .reversed {
   transform: rotate(180deg);
 }

@@ -15,7 +15,8 @@ import {
   faHome,
   faHandLizard,
   faInfoCircle,
-  faAngleUp
+  faAngleUp,
+  faRedo
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitterSquare,
@@ -31,7 +32,8 @@ library.add(
   faAngleUp,
   faTwitterSquare,
   faLine,
-  faFacebookSquare
+  faFacebookSquare,
+  faRedo
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

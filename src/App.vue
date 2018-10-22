@@ -30,6 +30,11 @@ export default {
       (to.name === 'spread' && from.name === 'about') || to.name === 'daily'
         ? (this.transisitionName = 'fade-right')
         : (this.transisitionName = 'fade-left');
+      //router change
+      //Below scroll not use smooth!
+      window.scroll({
+        top:0
+      })
     }
   }
 };
