@@ -2,9 +2,9 @@
   <div id="app" @click.right="e=>e.preventDefault()">
     <!--<button v-if="pwa" @click="goBack" type="ios-arrow-thin-left" size="50" style="position:fixed;bottom:20;right:20;border:2px solid rgba(0, 0, 0,.5);border-radius:100%;z-index:100;"></button>-->
     <header>{{$t(`message.${this.$route.name}`)}}</header>
-    <main>
+    <transition :name="transisitionName">
       <router-view class="router" />
-    </main>
+    </transition>
     <footer>
       <footer-navigator />
     </footer>
@@ -20,12 +20,39 @@ export default {
   mounted() {
     this.$root.$i18n.locale = navigator.language || navigator.userLanguage;
   },
-  methods: {},
-  watch: {}
+  data() {
+    return {
+      transisitionName: ''
+    };
+  },
+  watch: {
+    $route(to, from) {
+      (to.name === 'spread' && from.name === 'about') || to.name === 'daily'
+        ? (this.transisitionName = 'fade-right')
+        : (this.transisitionName = 'fade-left');
+    }
+  }
 };
 </script>
 
 <style lang="scss">
+$duration: 0.2s;
+$distance: 10%;
+.fade-right-enter-active,
+.fade-right-leave-active,
+.fade-left-enter-active,
+.fade-left-leave-active {
+  transition: all $duration ease;
+}
+.fade-right-enter, .fade-right-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate3d($distance, 0, 0);
+}
+.fade-left-enter, .fade-left-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate3d(-$distance, 0, 0);
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,26 +60,16 @@ export default {
   width: 100%;
   height: 100%;
 }
-main {
+
+.router {
   min-height: 100%;
+  //min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  & * {
-    max-width: 100%;
-  }
-  .router {
-    height: 100%;
-    //min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 }
-
 h1.title,
 header {
   height: 40px;
