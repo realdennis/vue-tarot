@@ -1,18 +1,22 @@
 <template>
   <div id="spread-result">
     <transition name="fade-down">
-      <div class="draw-wrapper" v-if="hasDraw">
-        <font-awesome-icon @click="reset" style="font-size:50px;opacity:.8;color:gray;cursor:pointer; padding:10px;margin:5px;" class="font-awesome" :icon="['fas','redo']" />
-        <div v-for="(c,key) in each" class="card" :key="key">
-          <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
-          <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
-            <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
-          </a>
+      <div class="draw-wrapper" key=0 v-if="hasDraw">
+        <div class="card-set">
+          <div v-for="(c,key) in each" class="card" :key="key">
+            <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
+            <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
+              <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
+            </a>
+          </div>
         </div>
-        <font-awesome-icon @click="upMethods" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;margin:10px;" class="font-awesome" :icon="['fas','angle-up']" />
+        <div class="flex" style="display:flex;flex-direction:wrap;justify-content:center;align-items:center;">
+          <font-awesome-icon @click="reset" style="font-size:60px;opacity:.8;color:gray;cursor:pointer; padding:15px;" class="font-awesome" :icon="['fas','redo']" />
+          <font-awesome-icon @click="upMethods" style="font-size:60px;opacity:.8;color:gray;cursor:pointer;margin:10px;" class="font-awesome" :icon="['fas','angle-up']" />
+        </div>
       </div>
     </transition>
-    <div class="choose-button" id="enter" v-if="!hasDraw">
+    <div class="choose-button" id="enter" key=1 v-if="!hasDraw">
       <font-awesome-icon @click="tEnd" class="draw-button" :icon="['far','dot-circle']" />
       <h3>{{$t("message.spreadNumber",{number:number})}}</h3>
       <p>{{$t("message.meditation")}}</p>
@@ -94,9 +98,6 @@ export default {
   transform: translate3d(0, -50%, 0);
   opacity: 0;
 }
-.reversed {
-  transform: rotate(180deg);
-}
 .draw-wrapper {
   flex: 1;
   height: 100%;
@@ -104,53 +105,46 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .card-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card {
+      padding: 15px 25px;
+      //background-color: white;
+      border-radius: 10px;
+      //border: 1px rgba(0, 0, 0, 0.7) solid;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img.tarot {
+        max-width: 70%;
+        height: auto;
+        object-fit: contain;
+      }
+      img.reversed {
+        transform: rotate(180deg);
+      }
+    }
+    .card-name {
+      opacity: 0.6;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 5px;
+    }
+  }
 }
-.draw-button {
-  font-size: 100px;
-  margin: 10px;
-  cursor: pointer;
-}
+
 .choose-button {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-button {
-  background: none;
-  border: 1px solid black;
-  color: black;
-  width: 50vw;
-  margin: 10px;
-  display: flex;
-  border-radius: 10px;
-  padding: 18px 40px;
-  font-size: 18px;
-  justify-content: center;
-  align-items: center;
-}
-.card {
-  height: 100%;
-  max-width: 100%;
-  min-width: 20%;
-  margin: 10px 15px;
-  padding: 5px 10px;
-  //background-color: white;
-  border-radius: 10px;
-  //border: 1px rgba(0, 0, 0, 0.7) solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img.tarot {
-    max-width: 80%;
-    height: auto;
-    object-fit: contain;
+  .draw-button {
+    font-size: 100px;
+    margin: 10px;
+    cursor: pointer;
   }
-}
-.card-name {
-  font-style: italic;
-  font-size: 1.4em;
-  margin-top: 10px;
 }
 </style>
