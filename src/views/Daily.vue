@@ -156,8 +156,9 @@ export default {
       justify-content: center;
       align-items: stretch;
       img.tarot {
-        max-width: 50%;
-        max-height: 260px;
+        background-color:rgb(213,206,200);
+        max-width:50%;
+        max-height:260px;
         object-fit: contain;
       }
       .reversed {

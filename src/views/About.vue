@@ -61,9 +61,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.jojo {
-  width: 220px;
-}
 .contents-wrapper {
   height: 100%;
   flex: 1;
@@ -79,6 +76,7 @@ export default {
     align-items: center;
     padding: 10px;
     img {
+      cursor: pointer;
       flex-shrink: 0;
       width: 100px;
       height: 100px;

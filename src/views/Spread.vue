@@ -44,6 +44,8 @@ export default {
     justify-content: center;
     margin: 10px;
     .button {
+      cursor: pointer;
+      outline: none;
       text-align: center;
       background-color: rgba(10, 10, 10, 0.8);
       color: white;
