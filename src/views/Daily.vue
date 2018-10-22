@@ -1,34 +1,36 @@
 <template>
   <div class="daily">
-    <div v-if="hasDraw" class="result-wrapper">
-      <div class="result">
-        <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
-        <div class="tarot-text">
-          <div class="card-mean">
-            <i> {{ cardInfo.mean }}</i>
+    <transition name="fade-up">
+      <div class="result-wrapper" v-if="hasDraw" key=0>
+        <div class="result">
+          <img class="tarot" :src="cardInfo.path" :class="{reversed:cardInfo.reversed}" :style="cardInfo.style">
+          <div class="tarot-text">
+            <div class="card-mean">
+              <i> {{ cardInfo.mean }}</i>
+            </div>
+            <a class="card-name" :href="gSearchLink" target="_blank">
+              <h6> {{ cardInfo.flagName }}</h6>
+              <h4> {{ cardInfo.cardName }}</h4>
+            </a>
           </div>
-          <a class="card-name" :href="gSearchLink" target="_blank">
-            <h6> {{ cardInfo.flagName }}</h6>
-            <h4> {{ cardInfo.cardName }}</h4>
-          </a>
         </div>
+        <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
+          <div class="social-icon-wrapper">
+            <network class="network" network="facebook">
+              <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
+            </network>
+            <network class="network" network="line">
+              <font-awesome-icon class="social-icon" :icon="['fab','line']" />
+            </network>
+            <network class="network" network="twitter">
+              <font-awesome-icon class="social-icon" :icon="['fab','twitter-square']" />
+            </network>
+          </div>
+        </social-sharing>
+        <div class="draw-time" v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })" />
       </div>
-      <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
-        <div class="social-icon-wrapper">
-          <network class="network" network="facebook">
-            <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
-          </network>
-          <network class="network" network="line">
-            <font-awesome-icon class="social-icon" :icon="['fab','line']" />
-          </network>
-          <network class="network" network="twitter">
-            <font-awesome-icon class="social-icon" :icon="['fab','twitter-square']" />
-          </network>
-        </div>
-      </social-sharing>
-      <div class="draw-time" v-html="$t('message.drawTime',{ month:cardInfo.drawTime.month,date:cardInfo.drawTime.date,hours:cardInfo.drawTime.hours,restHour:restHour })" />
-    </div>
-    <div class="choose-button" v-else>
+    </transition>
+    <div class="choose-button" v-if="!hasDraw" key=1>
       <font-awesome-icon @click="drawHandler" class="draw-button" :icon="['far','dot-circle']" />
       <h3>{{$t("message.moreDaily")}}</h3>
       <p>{{$t("message.meditation")}}</p>
@@ -119,9 +121,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: all .8s ease;
+}
+.fade-up-enter, .fade-up-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translate3d(0,100%,0);
+  opacity: 0;
+}
 .daily {
   .choose-button {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,56 +141,55 @@ export default {
       cursor: pointer;
     }
   }
-}
-.result-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .result {
-    max-width: 100%;
-    background-color: white;
-    padding: 15px;
-    color: black;
-    border-radius: 10px;
+  .result-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: stretch;
-    img.tarot {
-      max-width: 50%;
-      max-height: 260px;
-      object-fit: contain;
-    }
-    .reversed {
-      transform: rotate(180deg);
-    }
-    .tarot-text {
+    align-items: center;
+    .result {
+      max-width: 100%;
+      background-color: white;
+      padding: 15px;
+      color: black;
+      border-radius: 10px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 0px 20px;
-      .card-mean {
-        height: 100%;
+      justify-content: center;
+      align-items: stretch;
+      img.tarot {
+        max-width: 50%;
+        max-height: 260px;
+        object-fit: contain;
+      }
+      .reversed {
+        transform: rotate(180deg);
+      }
+      .tarot-text {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        margin: 0px 20px;
+        .card-mean {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
-  }
-  .social-icon-wrapper {
-    font-size: 50px;
-    color: gray;
-    margin: 10px;
-    display: flex;
-    width: 50%;
-    justify-content: space-around;
-  }
+    .social-icon-wrapper {
+      font-size: 50px;
+      color: gray;
+      margin: 10px;
+      display: flex;
+      width: 50%;
+      justify-content: space-around;
+    }
 
-  .draw-time {
-    margin: 10px;
-    font-style: italic;
+    .draw-time {
+      margin: 10px;
+      font-style: italic;
+    }
   }
 }
 </style>
