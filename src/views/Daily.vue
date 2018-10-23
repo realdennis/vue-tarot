@@ -14,7 +14,7 @@
             </a>
           </div>
         </div>
-        <social-sharing url="https://realdennis.github.io/vue-tarot" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
+        <social-sharing :url="url" :title="socialContent" :description="socialContent" :quote="socialContent" hashtags="app,daily,tarot" inline-template>
           <div class="social-icon-wrapper">
             <network class="network" network="facebook">
               <font-awesome-icon class="social-icon" :icon="['fab','facebook-square']" />
@@ -48,6 +48,7 @@ export default {
   },
   data() {
     return {
+      url:location.origin,
       hasDraw: false,
       cardInfo: {
         drawTime: {
