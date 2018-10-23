@@ -4,9 +4,10 @@
       <div class="draw-wrapper" key=0 v-if="hasDraw">
         <div class="card-set">
           <div v-for="(c,key) in each" class="card" :key="key">
+            <span class="flag-name">{{c.flagName}}</span>
             <img class="tarot" :class="{reversed:c.reversed}" :src="c.path" :style="c.style">
             <a :href="gSearchLink(c.cardName)" target="_blank" style="text-align:center; display:flex">
-              <span class="card-name">{{c.flagName}} {{c.cardName}}</span>
+              <span class="card-name"> {{c.cardName}}</span>
             </a>
           </div>
         </div>
@@ -110,15 +111,20 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     .card {
-      padding: 15px 25px;
-      //background-color: white;
+      padding: 5px 15px;
+      margin:20px;
+      background-color: white;
+      //box-shadow: 1px 2px rgba(0,0,0,.3);
+      border: 1px solid rgba(0,0,0,.2);
+      width:200px;
       border-radius: 10px;
       //border: 1px rgba(0, 0, 0, 0.7) solid;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       img.tarot {
-        max-width: 70%;
+        max-width: 100%;
         height: auto;
         object-fit: contain;
       }
@@ -126,11 +132,18 @@ export default {
         transform: rotate(180deg);
       }
     }
+    .flag-name{
+      opacity: 0.6;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 5px;
+    }
     .card-name {
       opacity: 0.6;
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1em;
       padding: 5px;
+      text-transform: uppercase;
     }
   }
 }
