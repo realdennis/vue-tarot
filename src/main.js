@@ -50,4 +50,4 @@ new Vue({
 }).$mount('#app');
 
 //Service Worker
-import './registerServiceWorker';
+//import './registerServiceWorker';
